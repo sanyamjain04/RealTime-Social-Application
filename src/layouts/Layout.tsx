@@ -8,7 +8,7 @@ type LayoutProps = {
 
 const Layout :React.FC<LayoutProps> = ({children}) => {
   return (
-    <div className="flex w-screen h-screen dark:bg-dark-secondary">
+    <div className="flex w-screen h-screen dark:bg-dark-secondary dark:text-white">
         <Sidebar />
         {children}
     </div>

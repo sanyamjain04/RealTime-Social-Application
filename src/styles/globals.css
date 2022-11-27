@@ -25,4 +25,11 @@
     --accent-orange: 255 122 0;
     --accent-green: 0 184 122;
   }
+  
+}
+
+@layer components {
+  .scrollbarThin {
+    @apply scrollbar-thin scrollbar-thumb-rounded hover:scrollbar-thumb-gray-500
+  }
 }

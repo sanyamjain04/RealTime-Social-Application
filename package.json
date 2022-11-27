@@ -13,7 +13,8 @@
     "next": "latest",
     "phosphor-react": "^1.4.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tailwind-scrollbar": "^2.0.1"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",

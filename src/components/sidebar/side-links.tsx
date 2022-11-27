@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Nav_Buttons, Nav_Setting } from "../../data";
+import Divider from "../ui/Divider";
 
 export default function SideLinks() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -27,7 +28,7 @@ export default function SideLinks() {
         ))}
       </div>
 
-      <span className="w-8 h-[1px] bg-slate-600" />
+      <Divider className="!w-8" />
       {Nav_Setting.map((el, i) => (
         <div
           key={i}
