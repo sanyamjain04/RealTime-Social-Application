@@ -14,22 +14,22 @@ export interface ChatProps {
 } 
 
 const Message = () => {
-    const renderMessage = (chat: ChatProps) =>{
+    const renderMessage = (chat: ChatProps, idx:number) =>{
         switch (chat.type) {
             case 'divider':
-                return <Timeline {...chat} />
+                return <Timeline key={idx} {...chat} />
             case 'msg':
                 switch (chat.subtype) {
                     case 'img':
-                        return <MediaMessage {...chat} />
+                        return <MediaMessage key={idx} {...chat} />
                     case 'doc':
-                        return <DocMessage {...chat} />
+                        return <DocMessage key={idx} {...chat} />
                     case 'link':
-                        return <LinkMessage {...chat} />
+                        return <LinkMessage key={idx} {...chat} />
                     case 'reply':
-                        return <ReplyMessage {...chat} />
+                        return <ReplyMessage key={idx} {...chat} />
                     default:
-                        return <TextMessage {...chat} />
+                        return <TextMessage key={idx} {...chat} />
                 }
             default:
                 break;
@@ -39,8 +39,8 @@ const Message = () => {
   return (
     <div className='p-3'>
         <div className='flex flex-col gap-2'>
-            {Chat_History.map(chat=>{
-                return renderMessage(chat)
+            {Chat_History.map((chat, idx)=>{
+                return renderMessage(chat, idx)
             })}
         </div>
         
