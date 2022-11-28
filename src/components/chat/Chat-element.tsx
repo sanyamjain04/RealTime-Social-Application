@@ -23,8 +23,8 @@ const ChatElement = ({
       <UserAvator ClassName="h-[2.5rem] w-[2.5rem]" online={online} />
 
       <div className="flex flex-col items-start flex-grow">
-        <h6>{name}</h6>
-        <p className="text-xs">{msg}</p>
+        <span>{name}</span>
+        <span className="text-xs">{msg}</span>
       </div>
 
       <div className="flex flex-col justify-end items-end gap-1">

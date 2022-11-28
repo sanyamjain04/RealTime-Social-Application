@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker";
 import {
   ChatCircleDots,
   Gear,
@@ -31,18 +31,18 @@ const Nav_Buttons = [
   },
   {
     index: 1,
-    icon: <Users  width={30} height={30} />,
+    icon: <Users width={30} height={30} />,
   },
   {
     index: 2,
-    icon: <Phone  width={30} height={30} />,
+    icon: <Phone width={30} height={30} />,
   },
 ];
 
 const Nav_Setting = [
   {
     index: 3,
-    icon: <GearSix  width={30} height={30} />,
+    icon: <GearSix width={30} height={30} />,
   },
 ];
 
@@ -50,8 +50,8 @@ const ChatList = [
   {
     id: 0,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: "Weldon",
+    msg: "Camargue",
     time: "9:36",
     unread: 0,
     pinned: true,
@@ -60,8 +60,8 @@ const ChatList = [
   {
     id: 1,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: 'Llewellyn',
+    msg: 'Uncle Albert (Admiral Halsey)',
     time: "12:02",
     unread: 2,
     pinned: true,
@@ -70,8 +70,8 @@ const ChatList = [
   {
     id: 2,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: 'Madyson',
+    msg: 'Born in the USA',
     time: "10:35",
     unread: 3,
     pinned: false,
@@ -80,8 +80,8 @@ const ChatList = [
   {
     id: 3,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: 'Born',
+    msg: 'Born in the USA',
     time: "04:00",
     unread: 0,
     pinned: false,
@@ -90,8 +90,8 @@ const ChatList = [
   {
     id: 4,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: 'Born',
+    msg: 'Born in the USA',
     time: "08:42",
     unread: 0,
     pinned: false,
@@ -100,8 +100,8 @@ const ChatList = [
   {
     id: 5,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: 'Born',
+    msg: 'Born in the USA',
     time: "08:42",
     unread: 0,
     pinned: false,
@@ -110,8 +110,8 @@ const ChatList = [
   {
     id: 6,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: 'Born',
+    msg: 'Born in the USA',
     time: "08:42",
     unread: 0,
     pinned: false,
@@ -120,8 +120,8 @@ const ChatList = [
   {
     id: 7,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
-    msg: faker.music.songName(),
+    name: 'Born',
+    msg: 'Born in the USA',
     time: "08:42",
     unread: 0,
     pinned: false,
