@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import type { Accent, Theme } from "../lib/types/theme";
+import type { Accent } from "../lib/types/theme";
 
 type ThemeContext = {
   dark: boolean;

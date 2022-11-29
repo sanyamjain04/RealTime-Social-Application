@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import clsx from "clsx";
 import Image from "next/legacy/image";
 
@@ -17,7 +16,7 @@ const UserAvator = ({ ClassName, online }: UserAvatorProps) => {
             "rounded-full relative w-14 h-14 overflow-hidden "
           )}
         >
-          <Image src={faker.image.avatar()} alt="" layout="fill" />
+          <Image src={'https://avatars.githubusercontent.com/u/10858?v=4'} alt="" layout="fill" />
         </div>
         {online && (
           <div

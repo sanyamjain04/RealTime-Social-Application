@@ -17,10 +17,11 @@
     "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwind-scrollbar": "^2.0.1"
+    "tailwind-scrollbar": "^2.0.1",
+    "zustand": "^4.1.4"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.6.0",
+    "@next/bundle-analyzer": "^13.0.5",
     "@types/emoji-mart": "^3.0.9",
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",

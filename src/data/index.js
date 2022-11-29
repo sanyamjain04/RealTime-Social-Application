@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import {
   Camera,
   ChatCircleDots,
@@ -54,7 +53,7 @@ const Nav_Setting = [
 const ChatList = [
   {
     id: 0,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: "Weldon",
     msg: "Camargue",
     time: "9:36",
@@ -64,7 +63,7 @@ const ChatList = [
   },
   {
     id: 1,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: 'Llewellyn',
     msg: 'Uncle Albert (Admiral Halsey)',
     time: "12:02",
@@ -74,7 +73,7 @@ const ChatList = [
   },
   {
     id: 2,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: 'Madyson',
     msg: 'Born in the USA',
     time: "10:35",
@@ -84,7 +83,7 @@ const ChatList = [
   },
   {
     id: 3,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: 'Born',
     msg: 'Born in the USA',
     time: "04:00",
@@ -94,7 +93,7 @@ const ChatList = [
   },
   {
     id: 4,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: 'Born',
     msg: 'Born in the USA',
     time: "08:42",
@@ -104,7 +103,7 @@ const ChatList = [
   },
   {
     id: 5,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: 'Born',
     msg: 'Born in the USA',
     time: "08:42",
@@ -114,7 +113,7 @@ const ChatList = [
   },
   {
     id: 6,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: 'Born',
     msg: 'Born in the USA',
     time: "08:42",
@@ -124,7 +123,7 @@ const ChatList = [
   },
   {
     id: 7,
-    img: faker.image.avatar(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     name: 'Born',
     msg: 'Born in the USA',
     time: "08:42",
@@ -168,7 +167,7 @@ const Chat_History = [
     type: "msg",
     subtype: "img",
     message: "Here You Go",
-    img: faker.image.abstract(),
+    img: 'https://avatars.githubusercontent.com/u/10858?v=4',
     incoming: true,
     outgoing: false,
   },
@@ -188,7 +187,7 @@ const Chat_History = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.cats(),
+    preview: 'https://avatars.githubusercontent.com/u/10858?v=4',
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
@@ -287,7 +286,7 @@ const Shared_links = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.cats(),
+    preview: 'https://avatars.githubusercontent.com/u/10858?v=4',
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
@@ -295,7 +294,7 @@ const Shared_links = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.cats(),
+    preview: 'https://avatars.githubusercontent.com/u/10858?v=4',
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
@@ -303,7 +302,7 @@ const Shared_links = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.cats(),
+    preview: 'https://avatars.githubusercontent.com/u/10858?v=4',
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
@@ -311,7 +310,7 @@ const Shared_links = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.cats(),
+    preview: 'https://avatars.githubusercontent.com/u/10858?v=4',
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
@@ -319,7 +318,7 @@ const Shared_links = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.cats(),
+    preview: 'https://avatars.githubusercontent.com/u/10858?v=4',
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
@@ -327,7 +326,7 @@ const Shared_links = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.cats(),
+    preview: 'https://avatars.githubusercontent.com/u/10858?v=4',
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,

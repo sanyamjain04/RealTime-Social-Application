@@ -30,6 +30,6 @@
 
 @layer components {
   .scrollbarThin {
-    @apply scrollbar-thin scrollbar-thumb-rounded hover:scrollbar-thumb-gray-500
+    @apply scrollbar-thin scrollbar-thumb-rounded group-hover:scrollbar-thumb-gray-400
   }
 }

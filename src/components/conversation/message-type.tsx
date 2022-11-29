@@ -10,9 +10,9 @@ import { ChatProps } from "./message";
 const Timeline = (chat: ChatProps) => {
   return (
     <div className="flex p-2 items-center justify-between">
-      <Divider className="w-[46%]" />
+      <div className="h-[1px] bg-slate-600 rounded-full w-[46%]" />
       <p>{chat.text}</p>
-      <Divider className="w-[46%]" />
+      <div className="h-[1px] bg-slate-600 rounded-full w-[46%]" />
     </div>
   );
 };
@@ -216,8 +216,8 @@ const MessageOption = () => {
         }}
       >
         <div className="flex flex-col gap-1">
-          {Message_options.map((el) => (
-            <MenuItem className="dark:hover:bg-slate-400" onClick={handleClose}>{el.title}</MenuItem>
+          {Message_options.map((el, idx) => (
+            <MenuItem key={idx} className="dark:hover:bg-slate-400" onClick={handleClose}>{el.title}</MenuItem>
           ))}
         </div>
       </Menu>
