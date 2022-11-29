@@ -35,7 +35,7 @@ const TextMessage = (chat: ChatProps) => {
       >
         {chat.message}
       </p>
-      <div className={clsx(chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
+      <div className={clsx(!chat.menu && 'hidden', chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
         <MessageOption />
       </div>
 
@@ -69,7 +69,7 @@ const MediaMessage = (chat: ChatProps) => {
         </div>
         <p className={clsx("rounded-xl p-2 w-max")}>{chat.message}</p>
       </div>
-      <div className={clsx(chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
+      <div className={clsx(!chat.menu && 'hidden', chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
         <MessageOption />
       </div>
     </div>
@@ -110,7 +110,7 @@ const ReplyMessage = (chat: ChatProps) => {
         </p>
         
       </div>
-      <div className={clsx(chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
+      <div className={clsx(!chat.menu && 'hidden', chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
         <MessageOption />
       </div>
     </div>
@@ -134,7 +134,7 @@ const DocMessage = (chat: ChatProps) => {
       </div>
       <p className="rounded-xl p-1">{chat.message}</p>
       </div>
-      <div className={clsx(chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
+      <div className={clsx(!chat.menu && 'hidden', chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
         <MessageOption />
       </div>
     </div>
@@ -179,7 +179,7 @@ const LinkMessage = (chat: ChatProps) => {
           {chat.message}
         </p>
       </div>
-      <div className={clsx(chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
+      <div className={clsx(!chat.menu && 'hidden', chat.incoming === true ? 'order-1' :'-order-1',"w-5 h-2 invisible group-hover:visible" )}>
         <MessageOption />
       </div>
     </div>

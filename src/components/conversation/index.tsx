@@ -9,15 +9,14 @@ const ConversationInput = dynamic(() => import("./conversation-input"), {
 });
 
 const Conversation = () => {
-  const isSidebarOpen = useContactInformationStore(
-    (state) => state.sidebar.open
-  );
+  const isSidebarOpen :boolean = useContactInformationStore((state) => state.sidebar.open) ;
+
   return (
     <div
       className={clsx(
         "h-screen flex flex-col dark:bg-dark",
-        isSidebarOpen
-          ? "w-[calc(100vw-100px-300px-300px)]"
+        isSidebarOpen 
+          ? "w-[calc(100vw-100px-300px-300px)]" 
           : "w-[calc(100vw-100px-300px)]"
       )}
     >

@@ -11,9 +11,10 @@ export interface ChatProps {
     img?: string;
     preview?: string;
     reply?: string;
+    menu?: boolean
 } 
 
-const Message = () => {
+const Message = ({menu}:{menu:boolean}) => {
     const renderMessage = (chat: ChatProps, idx:number) =>{
         switch (chat.type) {
             case 'divider':
@@ -21,15 +22,15 @@ const Message = () => {
             case 'msg':
                 switch (chat.subtype) {
                     case 'img':
-                        return <MediaMessage key={idx} {...chat} />
+                        return <MediaMessage key={idx} {...chat} menu={menu} />
                     case 'doc':
-                        return <DocMessage key={idx} {...chat} />
+                        return <DocMessage key={idx} {...chat} menu={menu} />
                     case 'link':
-                        return <LinkMessage key={idx} {...chat} />
+                        return <LinkMessage key={idx} {...chat} menu={menu} />
                     case 'reply':
-                        return <ReplyMessage key={idx} {...chat} />
+                        return <ReplyMessage key={idx} {...chat} menu={menu} />
                     default:
-                        return <TextMessage key={idx} {...chat} />
+                        return <TextMessage key={idx} {...chat} menu={menu} />
                 }
             default:
                 break;

@@ -32,8 +32,9 @@ const Chat = () => {
         <button>Archive</button>
       </div>
 
-      <Divider className="bg-slate-500 m-2" />
-        <div className="gap-2 flex flex-col pr-2 overflow-y-scroll pb-2 ml-3 mr-1 mb-3 scrollbarThin">
+      <Divider className="m-2" />
+
+      <div className="gap-2 flex flex-col pr-1 overflow-y-scroll pb-2 ml-3 mr-1 mb-3 scrollbarThin">
 
         {/* Pinned Chat */}
         <h6 className="text-xs">Pinned</h6>

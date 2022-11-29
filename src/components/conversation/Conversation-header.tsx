@@ -5,12 +5,12 @@ import Divider from '../ui/Divider'
 import UserAvator from '../user/user-avator'
 
 const ConversationHeader = () => {
-  const toggleContactInformation = useContactInformationStore((state)=> state.toogleSidebar)
+  const toggleContactSidebar = useContactInformationStore((state)=> state.toggleSidebar)
 
   return (
     <div className='w-full bg-[#F8FAFF] dark:bg-dark flex justify-center items-center gap-2 p-2'>
 
-        <div className='flex flex-grow items-center gap-2 cursor-pointer' onClick={toggleContactInformation}>
+        <div className='flex flex-grow items-center gap-2 cursor-pointer' onClick={toggleContactSidebar}>
           <UserAvator online />
         
           <div className='w-max'>

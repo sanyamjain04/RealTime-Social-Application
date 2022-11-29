@@ -6,12 +6,12 @@ interface SidebarProps {
     type: 'CONTACT' | 'STARRED' | 'SHARED'
 }
 
-type SidebarTypes =  'CONTACT' | 'STARRED' | 'SHARED'
+export type SidebarTypes =  'CONTACT' | 'STARRED' | 'SHARED'
 
 
 interface ContactInformationProps {
     sidebar: SidebarProps
-    toogleSidebar: () => void
+    toggleSidebar: () => void
     updateSidebarType: (state: SidebarTypes) => void
 }
 
@@ -22,11 +22,11 @@ export const useContactInformationStore = create<ContactInformationProps>()(
                 open: false,
                 type: 'CONTACT'
             },
-            toogleSidebar: () => set({ sidebar: { open: get().sidebar.open = !get().sidebar.open, type: get().sidebar.type } }),
+            toggleSidebar: () => set({ sidebar: { open: get().sidebar.open = !get().sidebar.open, type: get().sidebar.type } }),
             updateSidebarType: (state : SidebarTypes)=> set({ sidebar: { open: get().sidebar.open , type: get().sidebar.type = state} })
         }),
         {
-            name: 'contact-information',
+            name: 'conversation-sidebar',
         }
     )
 )
