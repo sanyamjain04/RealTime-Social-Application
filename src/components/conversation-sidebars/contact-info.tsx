@@ -1,4 +1,3 @@
-import { Switch } from "@mui/material";
 import Image from "next/legacy/image";
 import {
   Bell,
@@ -14,6 +13,7 @@ import { useModal } from "../../hooks/useModal";
 import { useContactInformationStore } from "../../zustand/contackStore";
 import DialogSlide from "../ui/Dialog";
 import Divider from "../ui/Divider";
+import Toggle from "../ui/Toggle";
 import UserAvator from "../user/user-avator";
 
 const ContactInformation = () => {
@@ -117,7 +117,8 @@ const ContactInformation = () => {
               <Bell />
               <p>Mute Notifications</p>
             </div>
-            <Switch />
+            {/* <Switch /> */}
+            <Toggle onChange={()=>{}} />
           </div>
 
           <Divider />

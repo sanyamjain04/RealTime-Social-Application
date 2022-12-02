@@ -1,15 +1,12 @@
 import { Fade, Menu, MenuItem } from "@mui/material";
-import dynamic from "next/dynamic";
 import Image from "next/legacy/image";
 import { MouseEvent, useState } from "react";
 import Logo from "../../assets/Images/logo.ico";
 import { Profile_Menu } from "../../data";
+import { useTheme } from "../../hooks/theme-context";
+import Toogle from "../ui/Toggle";
 import UserAvator from "../user/user-avator";
 import SideLinks from "./side-links";
-
-const Switch = dynamic(() => import("./side-toggle"), {
-  ssr: false,
-});
 
 const Sidebar = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
@@ -33,9 +30,9 @@ const Sidebar = () => {
 
         <div className=" flex  flex-col gap-2 items-center justify-center">
           {/* Toogle Dark Mode  */}
-          <Switch />
+          <DarkModeToggle />
 
-          {/* UserAvator And Its setting modal */}
+          {/* UserAvator And It's setting modal */}
           <div onClick={handleClick}>
             <UserAvator />
           </div>
@@ -77,3 +74,10 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+function DarkModeToggle() {
+  const { dark, changeDarkMode } = useTheme();
+  return (
+    <Toogle checked={dark} onChange={changeDarkMode} /> 
+  )
+}

@@ -33,6 +33,7 @@ const Home: NextPage = () => {
       <Head>
         <title>ChatsApp</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="A realtime Chat, Audio and video calling App" />
       </Head>
       <Chat />
       <Conversation />

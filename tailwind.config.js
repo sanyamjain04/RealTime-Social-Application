@@ -42,8 +42,5 @@ module.exports = {
     { pattern: /bg-(red|green|blue|violet|orange|teal)-(100|200|300|500)/ },
     { pattern: /border-(red|green|blue|violet|orange|teal)-(100|200|500|600)/ },
   ],
-  plugins: [require("tailwind-scrollbar")],
-  variants: {
-    scrollbar: ["rounded"],
-  },
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };

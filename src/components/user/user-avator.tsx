@@ -16,7 +16,7 @@ const UserAvator = ({ ClassName, online }: UserAvatorProps) => {
             "rounded-full relative w-14 h-14 overflow-hidden "
           )}
         >
-          <Image src={'https://avatars.githubusercontent.com/u/10858?v=4'} alt="" layout="fill" />
+          <Image src='https://avatars.githubusercontent.com/u/10858?v=4' alt="" layout="fill" />
         </div>
         {online && (
           <div

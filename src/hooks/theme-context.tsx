@@ -11,7 +11,7 @@ import type { Accent } from "../lib/types/theme";
 type ThemeContext = {
   dark: boolean;
   accent: Accent;
-  changeDarkMode: ({ target: { value } }: ChangeEvent<HTMLInputElement>) => void;
+  changeDarkMode: () => void;
   changeAccent: ({ target: { value } }: ChangeEvent<HTMLInputElement>) => void;
 };
 
