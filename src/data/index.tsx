@@ -146,6 +146,12 @@ const Chat_History = [
   },
   {
     type: "msg",
+    message: "https://www.figma.com/file/cX28GcBPy6dz7NvyBYUaJy/CM-Chat-App?t=utgueRcAsYBdKANL-0",
+    incoming: false,
+    outgoing: true,
+  },
+  {
+    type: "msg",
     message: "Hi 👋 Panda, not bad, u ?",
     incoming: false,
     outgoing: true,

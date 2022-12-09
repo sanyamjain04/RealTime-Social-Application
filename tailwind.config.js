@@ -26,21 +26,24 @@ module.exports = {
         "accent-green": "rgb(var(--accent-green) / <alpha-value>)",
         "accent-red": "#F4212E",
         "dark-primary": "#E7E9EA",
-        "dark-secondary": "#71767B",
+        // "dark-secondary": "#71767B",
         "light-primary": "#0F1419",
         "light-secondary": "#536471",
-        dark: "#212B36",
+        'dark': "#212B36",
         "dark-secondary": "#161C24",
         "light-border": "#EFF3F4",
         "light-line-reply": "#CFD9DE",
         "twitter-icon": "#D6D9DB",
         "image-preview-hover": "#272C30",
       },
+      boxShadow: {
+        "main-shadow" : "0 35px 60px -15px rgba(var(--main-accent))"
+      }
     },
   },
   safelist: [
-    { pattern: /bg-(red|green|blue|violet|orange|teal)-(100|200|300|500)/ },
-    { pattern: /border-(red|green|blue|violet|orange|teal)-(100|200|500|600)/ },
+    { pattern: /bg-(pink|green|blue|purple|orange|yellow)-(100|200|300|500)/ },
+    { pattern: /border-(pink|green|blue|purple|orange|yellow)-(100|200|500|600)/ },
   ],
   plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };

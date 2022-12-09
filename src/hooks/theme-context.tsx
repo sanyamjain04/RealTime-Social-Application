@@ -8,14 +8,14 @@ import {
 } from "react";
 import type { Accent } from "../lib/types/theme";
 
-type ThemeContext = {
+type ThemeContextProps = {
   dark: boolean;
   accent: Accent;
   changeDarkMode: () => void;
   changeAccent: ({ target: { value } }: ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const ThemeContext = createContext<ThemeContext | null>(null);
+export const ThemeContext = createContext<ThemeContextProps | null>(null);
 
 type ThemeContextProviderProps = {
   children: ReactNode;
@@ -65,7 +65,9 @@ export function ThemeContextProvider({
       root.style.setProperty("--main-accent", `var(--accent-${accent})`);
 
       localStorage.setItem("accent", accent);
+      console.log(accent);
     };
+    flipAccent(accent)
     return () => flipAccent(accent);
   }, [accent]);
 
@@ -88,7 +90,7 @@ export function ThemeContextProvider({
   );
 }
 
-export function useTheme(): ThemeContext {
+export function useTheme(): ThemeContextProps {
   const context = useContext(ThemeContext);
 
   if (!context)

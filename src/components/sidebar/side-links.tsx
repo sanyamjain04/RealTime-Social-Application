@@ -13,7 +13,7 @@ export default function SideLinks() {
           <div
             key={i}
             className={`p-2 rounded-md dark:text-white ${
-              el.index === selectedTab && "bg-[#0162C4]"
+              el.index === selectedTab && "bg-main-accent"
             }`}
             onClick={() => setSelectedTab(i)}
           >
@@ -33,7 +33,7 @@ export default function SideLinks() {
         <div
           key={i}
           className={`p-2 rounded-md dark:text-white ${
-            el.index === selectedTab && "bg-[#0162C4]"
+            el.index === selectedTab && "bg-main-accent"
           }`}
           onClick={() => setSelectedTab(el.index)}
         >

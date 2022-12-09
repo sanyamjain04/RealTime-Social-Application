@@ -58,7 +58,7 @@ const ConversationInput = () => {
       </div>
 
       {/* Send Button */}
-      <div className="bg-[#0162C4] p-2 rounded-lg">
+      <div className="bg-main-accent p-2 rounded-lg">
         <PaperPlaneTilt size={20} />
       </div>
     </div>
