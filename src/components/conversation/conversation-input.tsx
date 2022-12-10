@@ -19,7 +19,7 @@ const ConversationInput = () => {
           {[...Actions].reverse().map((action, idx) => (
             <Tooltip title={action.title} key={idx} placement="right" >
               <div
-                className={`rounded-lg p-1 hover:bg-blue-400 bg-blue-500`}
+                className={`rounded-lg p-1 hover:bg-main-accent/80 bg-main-accent`}
                 >
                 {action.icon}
               </div>
@@ -38,7 +38,7 @@ const ConversationInput = () => {
         />
 
         {/* Emoji Picker */}
-        <div
+        <button
           className={clsx(
             "absolute bottom-20 right-10 z-10",
             !openEmojiPicker && "hidden"
@@ -48,19 +48,19 @@ const ConversationInput = () => {
             theme={dark ? "dark" : "light"}
             onEmojiSelect={console.log}
           />
-        </div>
-        <div
+        </button>
+        <button
           className="p-2 cursor-pointer hover:bg-slate-400 dark:hover:bg-slate-800"
           onClick={() => setOpenEmojiPicker((prev) => !prev)}
         >
           <Smiley size={20} />
-        </div>
+        </button>
       </div>
 
       {/* Send Button */}
-      <div className="bg-main-accent p-2 rounded-lg">
+      <button className="bg-main-accent p-2 rounded-lg">
         <PaperPlaneTilt size={20} />
-      </div>
+      </button>
     </div>
   );
 };

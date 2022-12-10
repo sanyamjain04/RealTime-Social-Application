@@ -1,14 +1,9 @@
-import { Switch } from "@mui/material";
 import { useTheme } from "../../hooks/theme-context";
+import Toogle from "../ui/Toggle";
 
-const SideAvator = () => {
+export default function DarkModeToggle() {
   const { dark, changeDarkMode } = useTheme();
-
   return (
-    <>
-      <Switch className="" checked={dark} onChange={changeDarkMode} />
-    </>
-  );
-};
-
-export default SideAvator;
+    <Toogle checked={dark} onChange={changeDarkMode} /> 
+  )
+}

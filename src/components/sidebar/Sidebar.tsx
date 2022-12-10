@@ -3,10 +3,9 @@ import Image from "next/legacy/image";
 import { MouseEvent, useState } from "react";
 import Logo from "../../assets/Images/logo.ico";
 import { Profile_Menu } from "../../data";
-import { useTheme } from "../../hooks/theme-context";
-import Toogle from "../ui/Toggle";
 import UserAvator from "../user/user-avator";
 import SideLinks from "./side-links";
+import DarkModeToggle from "./side-toggle";
 
 const Sidebar = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
@@ -75,9 +74,3 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-function DarkModeToggle() {
-  const { dark, changeDarkMode } = useTheme();
-  return (
-    <Toogle checked={dark} onChange={changeDarkMode} /> 
-  )
-}
