@@ -8,6 +8,7 @@ import {
 } from "../zustand/contackStore";
 
 const Conversation = dynamic(()=>import('../components/conversation'), {ssr:false})
+const NoChat = dynamic(()=>import('../assets/illustrations/NoChat'), {ssr:false})
 const ContactSidebar = dynamic(()=>import('../components/conversation-sidebars/contact-info'))
 const MediaSidebar = dynamic(()=>import('../components/conversation-sidebars/media-info'))
 const StarredMessagesSidebar = dynamic(()=>import('../components/conversation-sidebars/starred-messages'))
@@ -34,11 +35,21 @@ const Home: NextPage = () => {
       <Head>
         <title>ChatsApp</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="A realtime Chat, Audio and video calling App" />
+        <meta
+          name="description"
+          content="A realtime Chat, Audio and video calling App"
+        />
       </Head>
       {/* <Chat /> */}
       <Settings />
-      <Conversation />
+      {/* <Conversation /> */}
+      <div className="h-screen w-[calc(100vw-400px)] flex flex-col items-center justify-center">
+        <NoChat />
+        <p>
+          Select a conversation or start a{" "}
+          <span className="text-main-accent">new one</span>
+        </p>
+      </div>
       {isSidebarOpen && ConversationSidebar()}
     </>
   );

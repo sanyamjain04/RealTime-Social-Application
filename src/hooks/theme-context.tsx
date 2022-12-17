@@ -65,7 +65,6 @@ export function ThemeContextProvider({
       root.style.setProperty("--main-accent", `var(--accent-${accent})`);
 
       localStorage.setItem("accent", accent);
-      console.log(accent);
     };
     flipAccent(accent)
     return () => flipAccent(accent);

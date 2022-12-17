@@ -78,16 +78,17 @@ const Settings = () => {
         </div>
       </div>
 
-      {list.map((setting, key) => (
-        <div key={key} className="p-1" onClick={setting.onclick}>
-          <button className="flex items-center gap-3 p-2">
-            {setting.icon}
-            <h2>{setting.title}</h2>
-          </button>
-          {key !== 7 && <Divider />}
-        </div>
-      ))}
-    
+      <div className="overflow-scroll scrollbarThin">
+        {list.map((setting, key) => (
+          <div key={key} className="p-1" onClick={setting.onclick}>
+            <button className="flex items-center gap-3 p-2">
+              {setting.icon}
+              <h2>{setting.title}</h2>
+            </button>
+            {key !== 7 && <Divider />}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
