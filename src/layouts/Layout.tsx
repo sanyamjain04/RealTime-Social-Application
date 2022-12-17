@@ -4,7 +4,7 @@ import { FC, ReactNode } from "react"
 import Sidebar from "../components/sidebar/Sidebar"
 import { useThemeDirection } from "../zustand/themeDirection"
 
-const Settings = dynamic(()=>import('../components/settings'),{ssr:false})
+const ThemeSettings = dynamic(()=>import('../components/ThemeSettings'),{ssr:false})
 
 type LayoutProps = {
     children : ReactNode
@@ -16,7 +16,7 @@ const Layout :FC<LayoutProps> = ({children}:LayoutProps) => {
     <div className={clsx("flex w-screen h-screen dark:bg-dark-secondary dark:text-white", reverseDirection && 'flex-row-reverse')}>
         <Sidebar />
         {children}
-        <Settings />
+        <ThemeSettings />
     </div>
   )
 }

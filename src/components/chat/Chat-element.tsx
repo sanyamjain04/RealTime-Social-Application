@@ -29,7 +29,7 @@ const ChatElement = ({
 
       <div className="flex flex-col justify-end items-end gap-1">
         <p className="text-sm">{time}</p>
-        <p className="text-center rounded-full bg-green-400 dark:text-black w-4 h-4 text-xs">
+        <p className="text-center rounded-full text-white bg-main-accent w-4 h-4 text-xs">
           {unread}
         </p>
       </div>

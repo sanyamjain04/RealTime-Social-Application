@@ -9,11 +9,11 @@ import {
   X,
 } from "phosphor-react";
 import { MouseEvent, useState } from "react";
-import { useTheme } from "../../hooks/theme-context";
-import { useModal } from "../../hooks/useModal";
-import { useThemeDirection } from "../../zustand/themeDirection";
+import { useTheme } from "../hooks/theme-context";
+import { useModal } from "../hooks/useModal";
+import { useThemeDirection } from "../zustand/themeDirection";
 
-const Settings = () => {
+const ThemeSettings = () => {
   const { open, openModal, closeModal } = useModal();
   const [fullscreen, setFullscreen] = useState(false);
   const changeThemeDirection = useThemeDirection(
@@ -119,29 +119,35 @@ const AccentButton = () => {
   return (
     <>
       {["blue", "purple", "pink", "green", "orange", "yellow"].map((col) => (
-          <label
-            htmlFor={col}
-            key={col}
-            className={clsx("m-2 border flex items-center justify-center p-1 h-12 cursor-pointer rounded-lg text-slate-500 shadow-inner hover:shadow-[inset_0px_8px_8px_0px_rgba(0,0,0,0.24)]",col === accent && `border-${col}-600`)}
-          >
-            <input
-              type="radio"
-              name="accent"
-              id={col}
-              className="sr-only"
-              checked={col === accent}
-              value={col}
-              onChange={changeAccent}
-              />
-          <div
-            className={clsx(`w-[24px] h-[14px] rounded-[50%] rotate-45 bg-${col}-500 `, col === accent && 'shadow-main-')}
+        <label
+          htmlFor={col}
+          key={col}
+          className={clsx(
+            "m-2 border flex items-center justify-center p-1 h-12 cursor-pointer rounded-lg text-slate-500 shadow-inner hover:shadow-[inset_0px_8px_8px_0px_rgba(0,0,0,0.24)]",
+            col === accent && `border-${col}-600`
+          )}
+        >
+          <input
+            type="radio"
+            name="accent"
+            id={col}
+            className="sr-only"
+            checked={col === accent}
+            value={col}
+            onChange={changeAccent}
           />
-          </label>
+          <div
+            className={clsx(
+              col === accent && "shadow-main-accent rotate-0",
+              `w-[24px] h-[14px] rounded-[50%] rotate-45 bg-${col}-500 transition-all ease-in-out duration-200`
+            )}
+          />
+        </label>
       ))}
     </>
   );
 };
 
-export default Settings;
+export default ThemeSettings;
 
 // 0 0px 10px 2px #ffffff40;

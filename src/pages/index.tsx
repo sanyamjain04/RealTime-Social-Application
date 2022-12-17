@@ -11,6 +11,7 @@ const Conversation = dynamic(()=>import('../components/conversation'), {ssr:fals
 const ContactSidebar = dynamic(()=>import('../components/conversation-sidebars/contact-info'))
 const MediaSidebar = dynamic(()=>import('../components/conversation-sidebars/media-info'))
 const StarredMessagesSidebar = dynamic(()=>import('../components/conversation-sidebars/starred-messages'))
+const Settings = dynamic(()=>import('../components/Settings'))
 
 const Home: NextPage = () => {
   const isSidebarOpen: boolean = useContactInformationStore((state) => state.sidebar.open);
@@ -35,7 +36,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="A realtime Chat, Audio and video calling App" />
       </Head>
-      <Chat />
+      {/* <Chat /> */}
+      <Settings />
       <Conversation />
       {isSidebarOpen && ConversationSidebar()}
     </>
