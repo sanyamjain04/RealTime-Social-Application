@@ -10,6 +10,7 @@
     "@emoji-mart/react": "^1.0.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@headlessui/react": "^1.7.7",
     "@mui/material": "^5.10.15",
     "clsx": "^1.2.1",
     "emoji-mart": "^5.3.3",

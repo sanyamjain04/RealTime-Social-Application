@@ -118,7 +118,7 @@ const AccentButton = () => {
   const { changeAccent, accent } = useTheme();
   return (
     <>
-      {["blue", "purple", "pink", "green", "orange", "yellow"].map((col) => (
+      {["blue", "purple", "pink", "green", "orange", "red"].map((col) => (
         <label
           htmlFor={col}
           key={col}
@@ -138,8 +138,8 @@ const AccentButton = () => {
           />
           <div
             className={clsx(
-              col === accent && "shadow-main-accent rotate-0",
-              `w-[24px] h-[14px] rounded-[50%] rotate-45 bg-${col}-500 transition-all ease-in-out duration-200`
+              `w-[24px] h-[14px] rounded-[50%] bg-${col}-500 transition-all ease-in-out duration-200`,
+              col === accent ? "shadow-main-accent rotate-0 ": 'rotate-45',
             )}
           />
         </label>
@@ -149,5 +149,3 @@ const AccentButton = () => {
 };
 
 export default ThemeSettings;
-
-// 0 0px 10px 2px #ffffff40;

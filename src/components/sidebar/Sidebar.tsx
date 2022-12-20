@@ -6,24 +6,23 @@ import { Profile_Menu } from "../../data";
 import UserAvator from "../user/user-avator";
 import SideLinks from "./side-links";
 import DarkModeToggle from "./side-toggle";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const openMenu = Boolean(anchorEl);
-  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+  
+  
   return (
     <div className="w-[100px] h-screen bg-white dark:bg-dark overflow-hidden border-r dark:border-slate-600">
       <div className="flex flex-col justify-between h-full py-3">
 
         <div className="flex flex-col gap-5 items-center">
-          <div className="h-16 w-16 rounded-lg bg-[#0162C4]">
+          <Link href='/' className="h-16 w-16 rounded-lg bg-[#0162C4]">
             <Image src={Logo} alt="logo" />
-          </div>
+          </Link >
           <SideLinks />
         </div>
 

@@ -12,7 +12,6 @@ const NoChat = dynamic(()=>import('../assets/illustrations/NoChat'), {ssr:false}
 const ContactSidebar = dynamic(()=>import('../components/conversation-sidebars/contact-info'))
 const MediaSidebar = dynamic(()=>import('../components/conversation-sidebars/media-info'))
 const StarredMessagesSidebar = dynamic(()=>import('../components/conversation-sidebars/starred-messages'))
-const Settings = dynamic(()=>import('../components/Settings'))
 
 const Home: NextPage = () => {
   const isSidebarOpen: boolean = useContactInformationStore((state) => state.sidebar.open);
@@ -40,16 +39,15 @@ const Home: NextPage = () => {
           content="A realtime Chat, Audio and video calling App"
         />
       </Head>
-      {/* <Chat /> */}
-      <Settings />
-      {/* <Conversation /> */}
-      <div className="h-screen w-[calc(100vw-400px)] flex flex-col items-center justify-center">
+      <Chat />
+      <Conversation />
+      {/* <div className="h-screen w-[calc(100vw-400px)] flex flex-col items-center justify-center border-b-[6px] border-main-accent">
         <NoChat />
         <p>
           Select a conversation or start a{" "}
           <span className="text-main-accent">new one</span>
         </p>
-      </div>
+      </div> */}
       {isSidebarOpen && ConversationSidebar()}
     </>
   );
