@@ -73,7 +73,7 @@ const MediaSidebar = () => {
 const Tabs = ({ tab, selectedTab, setSelectedTab }: TabsProps):JSX.Element => (
   <button
     className={clsx(
-      selectedTab === tab && "text-blue-400 border-b-2 border-blue-400"
+      selectedTab === tab && "text-main-accent border-b-2 border-main-accent"
     )}
     onClick={() => setSelectedTab(tab as Tabs)}
   >

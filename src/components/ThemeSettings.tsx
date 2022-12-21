@@ -16,9 +16,7 @@ import { useThemeDirection } from "../zustand/themeDirection";
 const ThemeSettings = () => {
   const { open, openModal, closeModal } = useModal();
   const [fullscreen, setFullscreen] = useState(false);
-  const changeThemeDirection = useThemeDirection(
-    (state) => state.changeDirection
-  );
+  const changeThemeDirection = useThemeDirection((state) => state.changeDirection);
   const reverseDirection = useThemeDirection((state) => state.reverseDirection);
 
   function close(e: MouseEvent<SVGSVGElement>) {

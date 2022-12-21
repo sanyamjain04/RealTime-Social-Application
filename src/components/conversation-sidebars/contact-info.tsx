@@ -11,18 +11,21 @@ import {
 } from "phosphor-react";
 import { useModal } from "../../hooks/useModal";
 import { useContactInformationStore } from "../../zustand/contackStore";
-import DialogSlide from "../ui/Dialog";
 import Divider from "../ui/Divider";
 import Toggle from "../ui/Toggle";
 import UserAvator from "../user/user-avator";
+import DialogModal from "../ui/DialogModal";
 
 const ContactInformation = () => {
-  const toggleContactSidebar = useContactInformationStore((state) => state.toggleSidebar);
-  const changeSidebar = useContactInformationStore((state) => state.updateSidebarType);
+  const toggleContactSidebar = useContactInformationStore(
+    (state) => state.toggleSidebar
+  );
+  const changeSidebar = useContactInformationStore(
+    (state) => state.updateSidebarType
+  );
 
   return (
     <div className="w-[300px] h-screen bg-slate-200 dark:bg-dark dark:text-white gap-2 flex flex-col">
-
       {/* Header */}
       <div
         className="p-2"
@@ -118,7 +121,7 @@ const ContactInformation = () => {
               <p>Mute Notifications</p>
             </div>
             {/* <Switch /> */}
-            <Toggle onChange={()=>{}} />
+            <Toggle onChange={() => {}} />
           </div>
 
           <Divider />
@@ -151,23 +154,24 @@ const BlockDialog = () => {
   return (
     <>
       <button
-        className="flex gap-2 bg-transparent text-blue-400 border-blue-400 p-2 items-center border-2 rounded-lg"
+        className="flex gap-2 bg-transparent border-main-accent hover:bg-main-accent/50 p-2 items-center border-2 rounded-lg"
         onClick={openModal}
       >
         <Prohibit />
         <p>Block</p>
       </button>
-      { open &&
-        <DialogSlide
+      <DialogModal
         open={open}
-        action={closeModal}
-        actionTitle="Block User"
+        closeModal={closeModal}
+        title="Block User"
         closeButtonTitle="Close"
-        desc="Do you want to Block this user ?"
-        handleClose={closeModal}
-        title="Block Modal"
-        />
-      }
+        actionBtnTitle="Block"
+        actionBtn={closeModal}
+      >
+        <div>
+          <p className="dark:text-slate-300">Do you want to block the User?</p>
+        </div>
+      </DialogModal>
     </>
   );
 };
@@ -177,23 +181,26 @@ const DeleteDialog = () => {
   return (
     <>
       <button
-        className="flex gap-2 bg-transparent text-blue-400 border-blue-400 p-2 items-center border-2 rounded-lg"
+        className="flex gap-2 bg-transparent hover:bg-main-accent/50 border-main-accent p-2 items-center border-2 rounded-lg"
         onClick={openModal}
       >
         <Trash />
         <p>Delete</p>
       </button>
-      { open &&
-        <DialogSlide
+      <DialogModal
         open={open}
-        action={closeModal}
-        actionTitle="Delete Chat"
-        closeButtonTitle="Close"
-        desc="Do you want to Delete this Chat ?"
-        handleClose={closeModal}
+        closeModal={closeModal}
         title="Delete Chat"
-        />
-      }
+        closeButtonTitle="Close"
+        actionBtnTitle="Block"
+        actionBtn={closeModal}
+      >
+        <div>
+          <p className="dark:text-slate-300">
+            Do you want to Delete this Chat?
+          </p>
+        </div>
+      </DialogModal>
     </>
   );
 };
