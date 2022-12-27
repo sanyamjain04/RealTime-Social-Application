@@ -84,7 +84,7 @@ const Tabs = ({ tab, selectedTab, setSelectedTab }: TabsProps):JSX.Element => (
 const Media = ():JSX.Element => (
   <div className="grid grid-cols-3 gap-2 m-3">
     {[1, 2, 3, 4, 5,6,7].map((el, i) => (
-      <div className="relative w-16 h-16 ">
+      <div key={i} className="relative w-16 h-16">
         <Image
           src="https://avatars.githubusercontent.com/u/10858?v=4"
           alt=""
