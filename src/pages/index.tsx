@@ -15,20 +15,7 @@ const StarredMessagesSidebar = dynamic(()=>import('../components/conversation-si
 
 const Home: NextPage = () => {
   const isSidebarOpen: boolean = useContactInformationStore((state) => state.sidebar.open);
-  const sidebarType: SidebarTypes = useContactInformationStore((state) => state.sidebar.type);
 
-  function ConversationSidebar() {
-    switch (sidebarType) {
-      case "CONTACT":
-        return <ContactSidebar />;
-      case "SHARED":
-        return <MediaSidebar />;
-      case "STARRED":
-        return <StarredMessagesSidebar />;
-      default:
-        return;
-    }
-  }
   return (
     <>
       <Head>
@@ -48,9 +35,22 @@ const Home: NextPage = () => {
           <span className="text-main-accent">new one</span>
         </p>
       </div> */}
-      {isSidebarOpen && ConversationSidebar()}
+      {isSidebarOpen && <ConversationSidebar />}
     </>
   );
 };
 
+function ConversationSidebar() {
+  const sidebarType: SidebarTypes = useContactInformationStore((state) => state.sidebar.type);
+  switch (sidebarType) {
+    case "CONTACT":
+      return <ContactSidebar />;
+    case "SHARED":
+      return <MediaSidebar />;
+    case "STARRED":
+      return <StarredMessagesSidebar />;
+    default:
+      return null;
+  }
+}
 export default Home;
