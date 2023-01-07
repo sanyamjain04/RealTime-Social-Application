@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Chat from "../components/chat/chat";
@@ -6,15 +5,29 @@ import {
   SidebarTypes,
   useContactInformationStore,
 } from "../zustand/contackStore";
+import { ReactElement, ReactNode } from "react";
+import Layout from "../layouts/Layout";
 
-const Conversation = dynamic(()=>import('../components/conversation'), {ssr:false})
-const NoChat = dynamic(()=>import('../assets/illustrations/NoChat'), {ssr:false})
-const ContactSidebar = dynamic(()=>import('../components/conversation-sidebars/contact-info'))
-const MediaSidebar = dynamic(()=>import('../components/conversation-sidebars/media-info'))
-const StarredMessagesSidebar = dynamic(()=>import('../components/conversation-sidebars/starred-messages'))
+const Conversation = dynamic(() => import("../components/conversation"), {
+  ssr: false,
+});
+const NoChat = dynamic(() => import("../assets/illustrations/NoChat"), {
+  ssr: false,
+});
+const ContactSidebar = dynamic(
+  () => import("../components/conversation-sidebars/contact-info")
+);
+const MediaSidebar = dynamic(
+  () => import("../components/conversation-sidebars/media-info")
+);
+const StarredMessagesSidebar = dynamic(
+  () => import("../components/conversation-sidebars/starred-messages")
+);
 
-const Home: NextPage = () => {
-  const isSidebarOpen: boolean = useContactInformationStore((state) => state.sidebar.open);
+const Home = () => {
+  const isSidebarOpen: boolean = useContactInformationStore(
+    (state) => state.sidebar.open
+  );
 
   return (
     <>
@@ -40,8 +53,12 @@ const Home: NextPage = () => {
   );
 };
 
+Home.getLayout = (page: ReactElement): ReactNode => <Layout>{page}</Layout>;
+
 function ConversationSidebar() {
-  const sidebarType: SidebarTypes = useContactInformationStore((state) => state.sidebar.type);
+  const sidebarType: SidebarTypes = useContactInformationStore(
+    (state) => state.sidebar.type
+  );
   switch (sidebarType) {
     case "CONTACT":
       return <ContactSidebar />;

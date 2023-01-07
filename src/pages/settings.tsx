@@ -1,8 +1,12 @@
 import Head from "next/head";
 import Settings from "../components/Settings";
 import dynamic from "next/dynamic";
+import Layout from "../layouts/Layout";
+import { ReactElement, ReactNode } from "react";
 
-const NoChat = dynamic(()=>import('../assets/illustrations/NoChat'), {ssr:false})
+const NoChat = dynamic(() => import("../assets/illustrations/NoChat"), {
+  ssr: false,
+});
 
 const settings = () => {
   return (
@@ -21,5 +25,7 @@ const settings = () => {
     </>
   );
 };
+
+settings.getLayout = (page: ReactElement): ReactNode => <Layout>{page}</Layout>;
 
 export default settings;
