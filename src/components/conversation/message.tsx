@@ -1,4 +1,4 @@
-import { Chat_History } from '../../data'
+import { Chat_History } from '@data/index'
 import { DocMessage, LinkMessage, MediaMessage, ReplyMessage, TextMessage, Timeline } from './message-type';
 
 export interface ChatProps {

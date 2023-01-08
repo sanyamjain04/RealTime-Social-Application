@@ -1,7 +1,7 @@
 import { CaretDown, MagnifyingGlass, PhoneCall, VideoCamera } from 'phosphor-react'
 import React from 'react'
-import { useContactInformationStore } from '../../zustand/contackStore'
-import Divider from '../ui/Divider'
+import { useContactInformationStore } from '@zustand/contackStore'
+import Divider from '@ui/Divider'
 import UserAvator from '../user/user-avator'
 
 const ConversationHeader = () => {

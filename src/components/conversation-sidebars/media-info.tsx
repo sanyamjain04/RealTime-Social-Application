@@ -2,8 +2,8 @@ import clsx from "clsx";
 import Image from "next/legacy/image";
 import { CaretLeft } from "phosphor-react";
 import { Dispatch, SetStateAction, useState } from "react";
-import { Shared_docs, Shared_links } from "../../data";
-import { useContactInformationStore } from "../../zustand/contackStore";
+import { Shared_docs, Shared_links } from "@data/index";
+import { useContactInformationStore } from "@zustand/contackStore";
 import { DocMessage, LinkMessage } from "../conversation/message-type";
 
 type Tabs = "Media" | "Links" | "Docs";
@@ -75,7 +75,7 @@ const Tabs = ({ tab, selectedTab, setSelectedTab }: TabsProps):JSX.Element => (
     className={clsx(
       selectedTab === tab && "text-main-accent border-b-2 border-main-accent"
     )}
-    onClick={() => setSelectedTab(tab as Tabs)}
+    onClick={() => setSelectedTab(tab satisfies Tabs)}
   >
     {tab}
   </button>

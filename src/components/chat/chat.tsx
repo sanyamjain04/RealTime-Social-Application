@@ -1,6 +1,6 @@
 import { ArchiveBox, CircleDashed, MagnifyingGlass } from "phosphor-react";
-import { ChatList } from "../../data";
-import Divider from "../ui/Divider";
+import { ChatList } from "@data/index";
+import Divider from "@ui/Divider";
 import ChatElement from "./Chat-element";
 
 const Chat = () => {

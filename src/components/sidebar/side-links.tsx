@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Nav_Buttons } from "../../data";
-import Divider from "../ui/Divider";
+import { Nav_Buttons } from "@data/index";
+import Divider from "@ui/Divider";
 import { useRouter } from "next/router";
 import Link from "next/link";
 

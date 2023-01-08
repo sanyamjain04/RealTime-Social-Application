@@ -13,8 +13,26 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*":[
+        "./src/components/*"
+      ],
+      "@ui/*":[
+        "./src/components/ui/*"
+      ],
+      "@data/*":[
+        "./src/data/*"
+      ],
+      "@hooks/*":[
+        "./src/hooks/*"
+      ],
+      "@zustand/*":[
+        "./src/zustand/*"
+      ],
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/data/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/data/index.js", "src/components/hooks-form/TextField.jsx"],
   "exclude": ["node_modules"]
 }

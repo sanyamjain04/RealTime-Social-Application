@@ -2,8 +2,8 @@ import { Tooltip } from "@mui/material";
 import clsx from "clsx";
 import { LinkSimple, PaperPlaneTilt, Smiley } from "phosphor-react";
 import { useState } from "react";
-import { Actions } from "../../data";
-import { useTheme } from "../../hooks/theme-context";
+import { Actions } from "@data/index";
+import { useTheme } from "@hooks/theme-context";
 import EmojiPicker from "../EmojiPicker";
 
 const ConversationInput = () => {
@@ -16,8 +16,8 @@ const ConversationInput = () => {
       <div className="flex gap-1 items-center flex-grow dark:bg-dark-secondary rounded-lg">
         {/* Media Button  */}
         <div className={clsx("absolute bottom-20 left-3 flex flex-col gap-2",!showMedia && 'hidden')}>
-          {[...Actions].reverse().map((action, idx) => (
-            <Tooltip title={action.title} key={idx} placement="right" >
+          {[...Actions].reverse().map((action) => (
+            <Tooltip title={action.title} key={action.title} placement="right" >
               <div
                 className={`rounded-lg p-1 hover:bg-main-accent/80 bg-main-accent`}
                 >

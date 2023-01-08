@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Image from "next/legacy/image";
 import { DotsThreeVertical, DownloadSimple, File } from "phosphor-react";
 import { MouseEvent, useState } from "react";
-import { Message_options } from "../../data";
+import { Message_options } from "@data/index";
 import { ChatProps } from "./message";
 
 const Timeline = (chat: ChatProps) => {

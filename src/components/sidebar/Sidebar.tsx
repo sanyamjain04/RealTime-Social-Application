@@ -2,7 +2,7 @@ import { Fade, Menu, MenuItem } from "@mui/material";
 import Image from "next/legacy/image";
 import { MouseEvent, useState } from "react";
 import Logo from "../../assets/Images/logo.ico";
-import { Profile_Menu } from "../../data";
+import { Profile_Menu } from "@data/index";
 import UserAvator from "../user/user-avator";
 import SideLinks from "./side-links";
 import DarkModeToggle from "./side-toggle";

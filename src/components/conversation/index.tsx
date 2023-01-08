@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import dynamic from "next/dynamic";
-import { useContactInformationStore } from "../../zustand/contackStore";
+import { useContactInformationStore } from "@zustand/contackStore";
 import ConversationHeader from "./Conversation-header";
 import ConversationMessages from "./conversation-messages";
 

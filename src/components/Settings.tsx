@@ -11,10 +11,10 @@ import {
   PencilCircle,
 } from "phosphor-react";
 import UserAvator from "./user/user-avator";
-import Divider from "./ui/Divider";
+import Divider from "@ui/Divider";
 import Link from "next/link";
-import DialogModal from "./ui/DialogModal";
-import { shortcuts } from "../data";
+import DialogModal from "@ui/DialogModal";
+import { shortcuts } from "@data/index";
 
 const Settings = () => {
   const [showShortcuts, setShowShortcuts] = useState(false);
@@ -130,7 +130,7 @@ const KeyboardShortcuts = ({
             <p className="dark:text-gray-200 whitespace-nowrap">{shortcut.title}</p>
             <div className="flex items-center gap-2">
               {shortcut.combination.map((key) => (
-                <span className="bg-gray-300 dark:bg-slate-400 rounded-lg px-1.5">{key}</span>
+                <span className="bg-gray-300 dark:bg-slate-400 rounded-lg px-1.5" key={key} >{key}</span>
               ))}
             </div>
           </div>
