@@ -9,9 +9,9 @@ import {
   X,
 } from "phosphor-react";
 import { MouseEvent, useState } from "react";
-import { useTheme } from "../hooks/theme-context";
-import { useModal } from "../hooks/useModal";
-import { useThemeDirection } from "../zustand/themeDirection";
+import { useTheme } from "@hooks/theme-context";
+import { useModal } from "@hooks/useModal";
+import { useThemeDirection } from "@zustand/themeDirection";
 
 const ThemeSettings = () => {
   const { open, openModal, closeModal } = useModal();

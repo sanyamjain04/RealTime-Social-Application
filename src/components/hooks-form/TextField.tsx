@@ -1,8 +1,6 @@
-import { TextField } from "@mui/material";
 import PropTypes from "prop-types";
 import { useFormContext, Controller } from "react-hook-form";
-
-
+import Input from "@ui/Input";
 
 const RfhTextField = ({ name, helperText, ...other }: any) => {
   const { control } = useFormContext();
@@ -12,10 +10,9 @@ const RfhTextField = ({ name, helperText, ...other }: any) => {
       name={name}
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <TextField
+        <Input
           {...field}
-          fullWidth
-          error={!!error}
+          error={error ? error : "error"}
           helperText={error ? error?.message : helperText}
           {...other}
         />
@@ -24,9 +21,9 @@ const RfhTextField = ({ name, helperText, ...other }: any) => {
   );
 };
 
-RfhTextField.propType = {
-    name: PropTypes.string,
-    helperText: PropTypes.node
-}
+RfhTextField.propTypes = {
+  name: PropTypes.string,
+  helperText: PropTypes.node,
+};
 
 export default RfhTextField;
