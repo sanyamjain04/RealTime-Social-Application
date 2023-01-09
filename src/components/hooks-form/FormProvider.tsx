@@ -5,13 +5,7 @@ import type { UseFormReturn } from "react-hook-form/dist/types";
 type FormProviderProps = {
   children: ReactNode;
   onSubmit: () => void;
-  methods: UseFormReturn<
-    {
-      email: string;
-      password: string;
-    },
-    any
-  >;
+  methods: UseFormReturn
 };
 
 const FormProvider = ({ children, onSubmit, methods }: FormProviderProps) => {

@@ -31,6 +31,9 @@
       "@zustand/*":[
         "./src/zustand/*"
       ],
+      "@assets/*":[
+        "./src/assets/*"
+      ],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/data/index.js", "src/components/hooks-form/TextField.jsx"],

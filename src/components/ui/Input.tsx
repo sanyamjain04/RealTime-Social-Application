@@ -13,7 +13,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     <>
       <label
         htmlFor={id}
-        className="relative overflow-hidden rounded-md border px-3 my-1 pt-3 border-slate-400 focus-within:border-main-accent focus-within:ring-1 focus-within:ring-main-accent hover:border-main-accent"
+        className="relative overflow-hidden w-full rounded-md border px-3 my-1 pt-3 border-slate-400 focus-within:border-main-accent focus-within:ring-1 focus-within:ring-main-accent hover:border-main-accent"
       >
         <input
           className={clsx(
@@ -31,7 +31,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           {label}
         </span>
       </label>
-      {helperText ? <p className="text-red-600">{helperText}</p> : null}
     </>
   );
 });

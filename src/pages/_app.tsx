@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Layout from "../layouts/Layout";
 import { ThemeContextProvider } from "../hooks/theme-context";
 import { NextPage } from "next";
 import { ReactElement, ReactNode } from "react";
