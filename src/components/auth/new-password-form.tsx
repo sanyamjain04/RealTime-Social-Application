@@ -6,8 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import TextField from "@components/hooks-form/TextField";
 import Button from "@ui/Button";
-import Link from "next/link";
-import ErrorMessages from "./error-message";
+import ErrorMessages from "@components/auth/error-message";
 
 // Todo: change the mui components with own ui components
 
@@ -15,20 +14,23 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   // import { Eye, EyeSlash } from "phosphor-react";
 
-  const LoginSchema = Yup.object().shape({
-    email: Yup.string()
-      .required("Email is required")
-      .email("Please enter Valid email Address"),
-    password: Yup.string().required("Password is required").min(8),
+  const VerifyCodeSchema = Yup.object().shape({
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .required("Confirm password is required")
+      .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
 
   const defaultValues = {
-    email: "yourEmail@gmail.com",
-    password: "Your Password",
+    password: "",
+    confirmPassword: "",
   };
 
   const methods = useForm({
-    resolver: yupResolver(LoginSchema),
+    mode: "onChange",
+    resolver: yupResolver(VerifyCodeSchema),
     defaultValues,
   });
   const {
@@ -37,6 +39,7 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = methods;
+
   const onSubmit = async (data: any) => {
     try {
       // submit data to backend
@@ -52,35 +55,20 @@ const LoginForm = () => {
   };
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-      <ErrorMessages errors={errors} />
+      <ErrorMessages errors={errors}/>
       <div className="flex flex-col gap-2">
-        <TextField name="email" id="email" label="Email Address" autoFocus />
         <TextField
-          id="password"
-          name="password"
           label="Password"
-          type={showPassword ? "text" : "password"}
-          // InputProps={{
-          //   endAdornment: (
-          //     <InputAdornment>
-          //       <IconButton
-          //         onClick={() => setShowPassword((prev) => !prev)}
-          //       >
-          //         {showPassword ? <Eye /> : <EyeSlash />}
-          //       </IconButton>
-          //     </InputAdornment>
-          //   ),
-          // }}
+          name="password"
+          type="password"
+          autoFocus
         />
-        <Link
-          className="text-white hover:underline w-max ml-auto"
-          href="/auth/reset-password"
-        >
-          Forget Password?
-        </Link>
-        <Button type="submit" className="text-white">
-          Login
-        </Button>
+        <TextField
+          label="Confirm New Password"
+          name="confirmPassword"
+          type="password"
+        />
+        <Button type="submit">Update Password</Button>
       </div>
     </FormProvider>
   );

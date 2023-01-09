@@ -4,9 +4,9 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Alert } from "@mui/material";
 import TextField from "@components/hooks-form/TextField";
 import Button from "@ui/Button";
+import ErrorMessages from "./error-message";
 
 // Todo: change the mui components with own ui components
 
@@ -57,13 +57,7 @@ const RegisterForm = () => {
   return (
     <>
       <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-        {Object.entries(errors).length > 0 && (
-          <Alert severity="error">
-            {Object.entries(errors).map((err) => (
-              <p key={err[0]}>{err[1].message}</p>
-            ))}
-          </Alert>
-        )}
+        <ErrorMessages errors={errors} />
         <div className="flex flex-col sm:flex-row gap-2 items-center">
           <TextField
             name="firstName"
