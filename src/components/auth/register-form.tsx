@@ -7,7 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Alert } from "@mui/material";
 import TextField from "@components/hooks-form/TextField";
 import Button from "@ui/Button";
-import Link from "next/link";
 
 // Todo: change the mui components with own ui components
 
@@ -66,7 +65,12 @@ const RegisterForm = () => {
           </Alert>
         )}
         <div className="flex flex-col sm:flex-row gap-2 items-center">
-          <TextField name="firstName" id="firstName" label="First Name" />
+          <TextField
+            name="firstName"
+            id="firstName"
+            label="First Name"
+            autoFocus
+          />
           <TextField name="lastName" id="lastName" label="Last Name" />
         </div>
         <div className="flex flex-col gap-2">
@@ -88,12 +92,6 @@ const RegisterForm = () => {
             //   ),
             // }}
           />
-          <Link
-            className="flex justify-end text-white hover:underline"
-            href="/"
-          >
-            Forget Password?
-          </Link>
           <Button type="submit" className="text-white">
             Create Account
           </Button>

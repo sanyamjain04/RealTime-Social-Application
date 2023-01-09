@@ -1,3 +1,4 @@
+// @ts-nocheck
 import FormProvider from "@components/hooks-form/FormProvider";
 import { useState } from "react";
 import * as Yup from "yup";
@@ -60,10 +61,9 @@ const LoginForm = () => {
         )}
       </div>
       <div className="flex flex-col gap-2">
-        {/* @ts-ignore  */}
-        <TextField name="email" id="email" label="Email Address" />
-        {/*  @ts-ignore */}
-        <TextField id="password"
+        <TextField name="email" id="email" label="Email Address" autoFocus />
+        <TextField
+          id="password"
           name="password"
           label="Password"
           type={showPassword ? "text" : "password"}
@@ -79,7 +79,10 @@ const LoginForm = () => {
           //   ),
           // }}
         />
-        <Link className="flex justify-end text-white hover:underline" href="/">
+        <Link
+          className="text-white hover:underline w-max ml-auto"
+          href="/auth/reset-password"
+        >
           Forget Password?
         </Link>
         <Button type="submit" className="text-white">
