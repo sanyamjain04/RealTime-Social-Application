@@ -1,27 +1,27 @@
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import Chat from "../components/chat/chat";
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import Chat from '../components/chat/chat';
 import {
   SidebarTypes,
   useContactInformationStore,
-} from "../zustand/contackStore";
-import { ReactElement, ReactNode } from "react";
-import Layout from "../layouts/Layout";
+} from '../zustand/contackStore';
+import { ReactElement, ReactNode } from 'react';
+import Layout from '../layouts/Layout';
 
-const Conversation = dynamic(() => import("../components/conversation"), {
+const Conversation = dynamic(() => import('../components/conversation'), {
   ssr: false,
 });
-const NoChat = dynamic(() => import("../assets/illustrations/NoChat"), {
+const NoChat = dynamic(() => import('../assets/illustrations/NoChat'), {
   ssr: false,
 });
 const ContactSidebar = dynamic(
-  () => import("../components/conversation-sidebars/contact-info")
+  () => import('../components/conversation-sidebars/contact-info')
 );
 const MediaSidebar = dynamic(
-  () => import("../components/conversation-sidebars/media-info")
+  () => import('../components/conversation-sidebars/media-info')
 );
 const StarredMessagesSidebar = dynamic(
-  () => import("../components/conversation-sidebars/starred-messages")
+  () => import('../components/conversation-sidebars/starred-messages')
 );
 
 const Home = () => {
@@ -60,11 +60,11 @@ function ConversationSidebar() {
     (state) => state.sidebar.type
   );
   switch (sidebarType) {
-    case "CONTACT":
+    case 'CONTACT':
       return <ContactSidebar />;
-    case "SHARED":
+    case 'SHARED':
       return <MediaSidebar />;
-    case "STARRED":
+    case 'STARRED':
       return <StarredMessagesSidebar />;
     default:
       return null;

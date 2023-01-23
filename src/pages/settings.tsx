@@ -1,10 +1,10 @@
-import Head from "next/head";
-import Settings from "../components/Settings";
-import dynamic from "next/dynamic";
-import Layout from "../layouts/Layout";
-import { ReactElement, ReactNode } from "react";
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import Layout from '../layouts/Layout';
+import { ReactElement, ReactNode } from 'react';
+import Settings from '@components/Settings';
 
-const NoChat = dynamic(() => import("../assets/illustrations/NoChat"), {
+const NoChat = dynamic(() => import('../assets/illustrations/NoChat'), {
   ssr: false,
 });
 
@@ -15,10 +15,10 @@ const settings = () => {
         <title>Settings - ChatsApp</title>
       </Head>
       <Settings />
-      <div className="h-screen w-[calc(100vw-400px)] flex flex-col items-center justify-center border-b-[6px] border-main-accent">
+      <div className="flex h-screen w-[calc(100vw-400px)] flex-col items-center justify-center border-b-[6px] border-main-accent">
         <NoChat />
         <p>
-          Select a conversation or start a{" "}
+          Select a conversation or start a{' '}
           <span className="text-main-accent">new one</span>
         </p>
       </div>

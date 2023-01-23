@@ -1,20 +1,19 @@
-import { ArchiveBox, CircleDashed, MagnifyingGlass } from "phosphor-react";
-import { ChatList } from "@data/index";
-import Divider from "@ui/Divider";
-import ChatElement from "./Chat-element";
+import { ArchiveBox, CircleDashed, MagnifyingGlass } from 'phosphor-react';
+import { ChatList } from '@data/index';
+import Divider from '@ui/Divider';
+import ChatElement from './Chat-element';
 
 const Chat = () => {
   return (
-    <div className="group h-screen w-[300px] bg-slate-200 dark:bg-dark dark:text-white gap-2 flex flex-col">
-
+    <div className="group flex h-screen w-[300px] flex-col gap-2 bg-slate-200 dark:bg-dark dark:text-white">
       {/* Header */}
-      <div className="flex items-center justify-between px-2 m-3 ">
+      <div className="m-3 flex items-center justify-between px-2 ">
         <h4>Chats</h4>
         <CircleDashed size={25} />
       </div>
 
       {/* Search */}
-      <div className="flex gap-2 items-center bg-white mx-3 p-2 rounded-3xl ">
+      <div className="mx-3 flex items-center gap-2 rounded-3xl bg-white p-2">
         <MagnifyingGlass className="text-[#709CE6]" size={20} />
         <input
           type="text"
@@ -22,34 +21,31 @@ const Chat = () => {
           name=""
           id=""
           placeholder="Search..."
-          className="bg-transparent outline-none text-black w-full mr-2"
+          className="mr-2 w-full bg-transparent text-black outline-none"
         />
       </div>
 
       {/* Archive */}
-      <div className="flex px-2 gap-2 items-center">
+      <div className="flex items-center gap-2 px-2">
         <ArchiveBox size={18} />
         <button>Archive</button>
       </div>
 
       <Divider className="m-2" />
 
-      <div className="gap-2 flex flex-col pr-1 overflow-y-scroll pb-2 ml-3 mr-1 mb-3 scrollbarThin">
-
+      <div className="scrollbarThin ml-3 mr-1 mb-3 flex flex-col gap-2 overflow-y-scroll pr-1 pb-2">
         {/* Pinned Chat */}
         <h6 className="text-xs">Pinned</h6>
-        {ChatList.filter(chat=> chat.pinned).map(chat=>(
+        {ChatList.filter((chat) => chat.pinned).map((chat) => (
           <ChatElement key={chat.id} {...chat} />
         ))}
 
         {/* All Chats */}
         <h6 className="text-xs">All Chats</h6>
-        {ChatList.filter(chat=> !chat.pinned).map(chat=>(
+        {ChatList.filter((chat) => !chat.pinned).map((chat) => (
           <ChatElement key={chat.id} {...chat} />
         ))}
-
       </div>
-
     </div>
   );
 };

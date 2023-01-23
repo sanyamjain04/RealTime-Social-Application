@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import Image from "next/legacy/image";
+import clsx from 'clsx';
+import Image from 'next/legacy/image';
 
 interface UserAvatorProps {
   ClassName?: string;
@@ -13,15 +13,19 @@ const UserAvator = ({ ClassName, online }: UserAvatorProps) => {
         <div
           className={clsx(
             ClassName,
-            "rounded-full relative w-14 h-14 overflow-hidden "
+            'relative h-14 w-14 overflow-hidden rounded-full '
           )}
         >
-          <Image src='https://avatars.githubusercontent.com/u/10858?v=4' alt="" layout="fill" />
+          <Image
+            src="https://avatars.githubusercontent.com/u/10858?v=4"
+            alt=""
+            layout="fill"
+          />
         </div>
         {online && (
           <div
             className={clsx(
-              "rounded-full absolute border border-white z-10 h-2.5 w-2.5 bottom-0 right-1 bg-green-400"
+              'absolute bottom-0 right-1 z-10 h-2.5 w-2.5 rounded-full border border-white bg-green-400'
             )}
           ></div>
         )}

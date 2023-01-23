@@ -1,13 +1,13 @@
 // @ts-nocheck
-import FormProvider from "@components/hooks-form/FormProvider";
-import { useState } from "react";
-import * as Yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import TextField from "@components/hooks-form/TextField";
-import Button from "@ui/Button";
-import Link from "next/link";
-import ErrorMessages from "./error-message";
+import FormProvider from '@components/hooks-form/FormProvider';
+import { useState } from 'react';
+import * as Yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import TextField from '@components/hooks-form/TextField';
+import Button from '@ui/Button';
+import Link from 'next/link';
+import ErrorMessages from './error-message';
 
 // Todo: change the mui components with own ui components
 
@@ -17,14 +17,14 @@ const LoginForm = () => {
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
-      .required("Email is required")
-      .email("Please enter Valid email Address"),
-    password: Yup.string().required("Password is required").min(8),
+      .required('Email is required')
+      .email('Please enter Valid email Address'),
+    password: Yup.string().required('Password is required').min(8),
   });
 
   const defaultValues = {
-    email: "yourEmail@gmail.com",
-    password: "Your Password",
+    email: 'yourEmail@gmail.com',
+    password: 'Your Password',
   };
 
   const methods = useForm({
@@ -44,7 +44,7 @@ const LoginForm = () => {
     } catch (error: any) {
       console.log(error.message);
       reset();
-      setError("email", {
+      setError('email', {
         ...error,
         message: error.message,
       });
@@ -59,7 +59,7 @@ const LoginForm = () => {
           id="password"
           name="password"
           label="Password"
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           // InputProps={{
           //   endAdornment: (
           //     <InputAdornment>
@@ -73,7 +73,7 @@ const LoginForm = () => {
           // }}
         />
         <Link
-          className="text-white hover:underline w-max ml-auto"
+          className="ml-auto w-max text-white hover:underline"
           href="/auth/reset-password"
         >
           Forget Password?

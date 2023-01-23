@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState, Dispatch, SetStateAction } from 'react';
 import {
   Bell,
   CaretLeft,
@@ -9,12 +9,12 @@ import {
   Lock,
   Note,
   PencilCircle,
-} from "phosphor-react";
-import UserAvator from "./user/user-avator";
-import Divider from "@ui/Divider";
-import Link from "next/link";
-import DialogModal from "@ui/DialogModal";
-import { shortcuts } from "@data/index";
+} from 'phosphor-react';
+import UserAvator from './user/user-avator';
+import Divider from '@ui/Divider';
+import Link from 'next/link';
+import DialogModal from '@ui/DialogModal';
+import { shortcuts } from '@data/index';
 
 const Settings = () => {
   const [showShortcuts, setShowShortcuts] = useState(false);
@@ -22,54 +22,54 @@ const Settings = () => {
     {
       key: 0,
       icon: <Bell size={20} />,
-      title: "Notifications",
+      title: 'Notifications',
       onclick: () => {},
     },
     {
       key: 1,
       icon: <Lock size={20} />,
-      title: "Privacy",
+      title: 'Privacy',
       onclick: () => {},
     },
     {
       key: 2,
       icon: <Key size={20} />,
-      title: "Security",
+      title: 'Security',
       onclick: () => {},
     },
     {
       key: 3,
       icon: <PencilCircle size={20} />,
-      title: "Theme",
+      title: 'Theme',
       onclick: () => {},
     },
     {
       key: 4,
       icon: <Image size={20} />,
-      title: "Chat Wallpaper",
+      title: 'Chat Wallpaper',
       onclick: () => {},
     },
     {
       key: 5,
       icon: <Note size={20} />,
-      title: "Request Account Info",
+      title: 'Request Account Info',
       onclick: () => {},
     },
     {
       key: 6,
       icon: <Keyboard size={20} />,
-      title: "Keyboard Shortcuts",
+      title: 'Keyboard Shortcuts',
       onclick: () => setShowShortcuts(true),
     },
     {
       key: 7,
       icon: <Info size={20} />,
-      title: "Help",
+      title: 'Help',
       onclick: () => {},
     },
   ];
   return (
-    <div className="h-screen w-[300px] bg-slate-200 dark:bg-dark dark:text-white gap-2 flex flex-col p-4">
+    <div className="flex h-screen w-[300px] flex-col gap-2 bg-slate-200 p-4 dark:bg-dark dark:text-white">
       <div className="flex items-center gap-3 p-2">
         <Link href="/">
           <CaretLeft size={20} className="cursor-pointer" />
@@ -85,7 +85,7 @@ const Settings = () => {
         </div>
       </div>
 
-      <div className="overflow-scroll scrollbarThin">
+      <div className="scrollbarThin overflow-scroll">
         {list.map(({ key, icon, onclick, title }) => (
           <div key={key} className="p-1" onClick={onclick}>
             <button className="flex items-center gap-3 p-2">
@@ -96,6 +96,7 @@ const Settings = () => {
           </div>
         ))}
       </div>
+      
       {showShortcuts && (
         <KeyboardShortcuts
           showShortcuts={showShortcuts}
@@ -116,7 +117,7 @@ const KeyboardShortcuts = ({
   setShowShortcuts,
 }: KeyboardShortcutsProps) => {
   const closeModal = () => setShowShortcuts(false);
-  
+
   return (
     <DialogModal
       open={showShortcuts}
@@ -124,13 +125,23 @@ const KeyboardShortcuts = ({
       title="Keyboard Shortcuts"
       closeButtonTitle="Ok"
     >
-      <div className="grid items-center gap-x-5 gap-y-2 grid-cols-2">
+      <div className="grid grid-cols-2 items-center gap-x-5 gap-y-2">
         {shortcuts.map((shortcut) => (
-          <div key={shortcut.key} className="flex justify-between items-center gap-2">
-            <p className="dark:text-gray-200 whitespace-nowrap">{shortcut.title}</p>
+          <div
+            key={shortcut.key}
+            className="flex items-center justify-between gap-2"
+          >
+            <p className="whitespace-nowrap dark:text-gray-200">
+              {shortcut.title}
+            </p>
             <div className="flex items-center gap-2">
               {shortcut.combination.map((key) => (
-                <span className="bg-gray-300 dark:bg-slate-400 rounded-lg px-1.5" key={key} >{key}</span>
+                <span
+                  className="rounded-lg bg-gray-300 px-1.5 dark:bg-slate-400"
+                  key={key}
+                >
+                  {key}
+                </span>
               ))}
             </div>
           </div>

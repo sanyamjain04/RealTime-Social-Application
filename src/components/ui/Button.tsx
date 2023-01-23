@@ -1,11 +1,7 @@
-import clsx from "clsx";
-import React, {
-  ComponentPropsWithoutRef,
-  ReactNode,
-  forwardRef,
-} from "react";
+import clsx from 'clsx';
+import React, { ComponentPropsWithoutRef, ReactNode, forwardRef } from 'react';
 
-export interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   children: ReactNode;
 }
 
@@ -14,7 +10,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   return (
     <button
       className={clsx(
-        "flex gap-2 bg-transparent hover:bg-main-accent/50 border-main-accent p-2 items-center border-2 rounded-lg justify-center",
+        'flex items-center justify-center gap-2 rounded-lg border-2 border-main-accent bg-transparent p-2 hover:bg-main-accent/50',
         className
       )}
       {...prop}

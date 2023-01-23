@@ -5,8 +5,8 @@ import {
   useContext,
   useEffect,
   useState,
-} from "react";
-import type { Accent } from "../lib/types/theme";
+} from 'react';
+import type { Accent } from '../lib/types/theme';
 
 type ThemeContextProps = {
   dark: boolean;
@@ -22,21 +22,21 @@ type ThemeContextProviderProps = {
 };
 
 function setInitialTheme(): boolean {
-  if (typeof window === "undefined") return true;
+  if (typeof window === 'undefined') return true;
 
-  const savedTheme = JSON.parse(localStorage.getItem("dark") as string );
-  if(savedTheme) return savedTheme
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const savedTheme = JSON.parse(localStorage.getItem('dark') as string);
+  if (savedTheme) return savedTheme;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   return prefersDark;
 }
 
 function setInitialAccent(): Accent {
-  if (typeof window === "undefined") return "blue";
+  if (typeof window === 'undefined') return 'blue';
 
-  const savedAccent = localStorage.getItem("accent") as Accent | null;
+  const savedAccent = localStorage.getItem('accent') as Accent | null;
 
-  return savedAccent ?? "blue";
+  return savedAccent ?? 'blue';
 }
 
 export function ThemeContextProvider({
@@ -49,12 +49,12 @@ export function ThemeContextProvider({
     const flipDarkMode = (dark: boolean) => {
       const root = document.documentElement;
 
-      if (dark === true) root.classList.add("dark");
-      else root.classList.remove("dark");
+      if (dark === true) root.classList.add('dark');
+      else root.classList.remove('dark');
 
-      localStorage.setItem("dark", dark.toString());
+      localStorage.setItem('dark', dark.toString());
     };
-    flipDarkMode(dark)
+    flipDarkMode(dark);
     return () => flipDarkMode(dark);
   }, [dark]);
 
@@ -62,16 +62,16 @@ export function ThemeContextProvider({
     const flipAccent = (accent: Accent) => {
       const root = document.documentElement;
 
-      root.style.setProperty("--main-accent", `var(--accent-${accent})`);
+      root.style.setProperty('--main-accent', `var(--accent-${accent})`);
 
-      localStorage.setItem("accent", accent);
+      localStorage.setItem('accent', accent);
     };
-    flipAccent(accent)
+    flipAccent(accent);
     return () => flipAccent(accent);
   }, [accent]);
 
   const changeDarkMode = (): void => {
-    setDark((curr)=> !curr)
+    setDark((curr) => !curr);
   };
   const changeAccent = ({
     target: { value },
@@ -93,6 +93,6 @@ export function useTheme(): ThemeContextProps {
   const context = useContext(ThemeContext);
 
   if (!context)
-    throw new Error("useTheme must be used within an ThemeContextProvider");
+    throw new Error('useTheme must be used within an ThemeContextProvider');
   return context;
 }

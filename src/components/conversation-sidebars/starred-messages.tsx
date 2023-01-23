@@ -1,9 +1,9 @@
-import { CaretLeft } from "phosphor-react";
-import { Dispatch, SetStateAction } from "react";
-import { useContactInformationStore } from "@zustand/contackStore";
-import Message from "../conversation/message";
+import { CaretLeft } from 'phosphor-react';
+import { Dispatch, SetStateAction } from 'react';
+import { useContactInformationStore } from '@zustand/contackStore';
+import Message from '../conversation/message';
 
-type Tabs = "Media" | "Links" | "Docs";
+type Tabs = 'Media' | 'Links' | 'Docs';
 interface TabsProps {
   tab: Tabs;
   selectedTab: Tabs;
@@ -16,14 +16,14 @@ const StarredMessagesSidebar = () => {
   );
 
   return (
-    <div className="w-[300px] h-screen bg-slate-200 dark:bg-dark dark:text-white gap-2 flex flex-col">
+    <div className="flex h-screen w-[300px] flex-col gap-2 bg-slate-200 dark:bg-dark dark:text-white">
       {/* Header */}
       <div
         className="p-2"
-        style={{ boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.25)" }}
+        style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.25)' }}
       >
         <div className="flex items-center gap-3 p-4">
-          <button onClick={() => changeSidebar("CONTACT")}>
+          <button onClick={() => changeSidebar('CONTACT')}>
             <CaretLeft size={20} />
           </button>
           <h1>Starred Messages</h1>
@@ -31,14 +31,13 @@ const StarredMessagesSidebar = () => {
       </div>
 
       {/* Body */}
-      <div className="group flex flex-col flex-grow p-2 overflow-hidden ">
-        <div className="flex flex-col flex-grow gap-2 overflow-y-scroll scrollbarThin m-2">
+      <div className="group flex flex-grow flex-col overflow-hidden p-2 ">
+        <div className="scrollbarThin m-2 flex flex-grow flex-col gap-2 overflow-y-scroll">
           <Message menu={false} />
         </div>
       </div>
     </div>
   );
 };
-
 
 export default StarredMessagesSidebar;

@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import {
   Bell,
   CaretRight,
@@ -8,13 +8,13 @@ import {
   Trash,
   VideoCamera,
   XCircle,
-} from "phosphor-react";
-import { useModal } from "@hooks/useModal";
-import { useContactInformationStore } from "@zustand/contackStore";
-import Divider from "@ui/Divider";
-import Toggle from "@ui/Toggle";
-import UserAvator from "../user/user-avator";
-import DialogModal from "@ui/DialogModal";
+} from 'phosphor-react';
+import { useModal } from '@hooks/useModal';
+import { useContactInformationStore } from '@zustand/contackStore';
+import Divider from '@ui/Divider';
+import Toggle from '@ui/Toggle';
+import UserAvator from '../user/user-avator';
+import DialogModal from '@ui/DialogModal';
 
 const ContactInformation = () => {
   const toggleContactSidebar = useContactInformationStore(
@@ -25,11 +25,11 @@ const ContactInformation = () => {
   );
 
   return (
-    <div className="w-[300px] h-screen bg-slate-200 dark:bg-dark dark:text-white gap-2 flex flex-col">
+    <div className="flex h-screen w-[300px] flex-col gap-2 bg-slate-200 dark:bg-dark dark:text-white">
       {/* Header */}
       <div
         className="p-2"
-        style={{ boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.25)" }}
+        style={{ boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.25)' }}
       >
         <div className="flex items-center gap-3 p-4">
           <div onClick={toggleContactSidebar} className="cursor-pointer">
@@ -40,8 +40,8 @@ const ContactInformation = () => {
       </div>
 
       {/* Body */}
-      <div className="group flex flex-col flex-grow p-2 overflow-hidden ">
-        <div className="flex flex-col gap-2 overflow-y-scroll scrollbarThin">
+      <div className="group flex flex-grow flex-col overflow-hidden p-2 ">
+        <div className="scrollbarThin flex flex-col gap-2 overflow-y-scroll">
           <div className="flex items-center gap-5 px-2 pb-2 ">
             <UserAvator />
             <div className="flex flex-col justify-start">
@@ -66,7 +66,7 @@ const ContactInformation = () => {
           {/* About Section  */}
           <div className="flex flex-col justify-center gap-3 p-2">
             <h1 className="">About</h1>
-            <p className="font-semibold text-sm">
+            <p className="text-sm font-semibold">
               Hi there, I am using Chatsapp 🔥
             </p>
           </div>
@@ -75,11 +75,11 @@ const ContactInformation = () => {
 
           {/* Media Section  */}
           <div className="flex flex-col justify-center gap-3 p-2">
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <p>Media, links and docs</p>
               <button
                 className="flex items-center bg-transparent"
-                onClick={() => changeSidebar("SHARED")}
+                onClick={() => changeSidebar('SHARED')}
               >
                 <p>200</p>
                 <CaretRight size={18} />
@@ -87,7 +87,7 @@ const ContactInformation = () => {
             </div>
             <div className="flex justify-between gap-2 p-2">
               {[1, 2, 3].map((el, idx) => (
-                <div key={idx} className="relative w-12 h-12">
+                <div key={idx} className="relative h-12 w-12">
                   <Image
                     src="https://avatars.githubusercontent.com/u/10858?v=4"
                     alt=""
@@ -108,7 +108,7 @@ const ContactInformation = () => {
             </div>
             <CaretRight
               className="cursor-pointer"
-              onClick={() => changeSidebar("STARRED")}
+              onClick={() => changeSidebar('STARRED')}
             />
           </div>
 
@@ -139,7 +139,7 @@ const ContactInformation = () => {
           </div>
 
           {/* Buttons  */}
-          <div className="flex gap-2 items-center justify-evenly p-1">
+          <div className="flex items-center justify-evenly gap-2 p-1">
             <BlockDialog />
             <DeleteDialog />
           </div>
@@ -154,7 +154,7 @@ const BlockDialog = () => {
   return (
     <>
       <button
-        className="flex gap-2 bg-transparent border-main-accent hover:bg-main-accent/50 p-2 items-center border-2 rounded-lg"
+        className="flex items-center gap-2 rounded-lg border-2 border-main-accent bg-transparent p-2 hover:bg-main-accent/50"
         onClick={openModal}
       >
         <Prohibit />
@@ -181,7 +181,7 @@ const DeleteDialog = () => {
   return (
     <>
       <button
-        className="flex gap-2 bg-transparent hover:bg-main-accent/50 border-main-accent p-2 items-center border-2 rounded-lg"
+        className="flex items-center gap-2 rounded-lg border-2 border-main-accent bg-transparent p-2 hover:bg-main-accent/50"
         onClick={openModal}
       >
         <Trash />

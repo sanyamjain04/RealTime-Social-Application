@@ -1,4 +1,4 @@
-import UserAvator from "../user/user-avator";
+import UserAvator from '@components/user/user-avator';
 
 interface ChatElementProps {
   id: number;
@@ -18,18 +18,17 @@ const ChatElement = ({
   unread,
 }: ChatElementProps) => {
   return (
-    <div className="flex items-center gap-2 h-16 rounded-lg p-2 mr-1 bg-white dark:bg-dark-secondary dark:text-white">
-
+    <div className="mr-1 flex h-16 items-center gap-2 rounded-lg bg-white p-2 dark:bg-dark-secondary dark:text-white">
       <UserAvator ClassName="h-[2.5rem] w-[2.5rem]" online={online} />
 
-      <div className="flex flex-col items-start flex-grow">
+      <div className="flex flex-grow flex-col items-start">
         <span>{name}</span>
         <span className="text-xs">{msg}</span>
       </div>
 
-      <div className="flex flex-col justify-end items-end gap-1">
+      <div className="flex flex-col items-end justify-end gap-1">
         <p className="text-sm">{time}</p>
-        <p className="text-center rounded-full text-white bg-main-accent w-4 h-4 text-xs">
+        <p className="h-4 w-4 rounded-full bg-main-accent text-center text-xs text-white">
           {unread}
         </p>
       </div>

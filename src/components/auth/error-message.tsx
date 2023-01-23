@@ -1,4 +1,4 @@
-import { Alert } from "@mui/material";
+import { Alert } from '@mui/material';
 
 type ErrorMessagesProps = {
   [key: string]: {

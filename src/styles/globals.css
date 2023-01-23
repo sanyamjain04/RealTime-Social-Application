@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
+  :root {
     --main-background: var(--dark-background);
     --main-search-background: var(--dark-search-background);
     --main-sidebar-background: var(--dark-sidebar-background);
@@ -29,6 +29,6 @@
 
 @layer components {
   .scrollbarThin {
-    @apply scrollbar-thin scrollbar-thumb-rounded group-hover:scrollbar-thumb-gray-400
+    @apply scrollbar-thin scrollbar-thumb-rounded group-hover:scrollbar-thumb-gray-400;
   }
 }
