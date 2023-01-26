@@ -1,3 +1,21 @@
+# backend
+node_modules
+.env
+.env.dev
+.env.prod
+.env.infisical
+
+*~
+*.swp
+*.swo
+
+.DS_Store
+
+/dist
+/completions/
+/manpages/
+
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -9,7 +27,7 @@
 /coverage
 
 # next.js
-/.next/
+.next/
 /out/
 
 # production
