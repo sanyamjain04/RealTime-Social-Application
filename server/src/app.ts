@@ -4,9 +4,25 @@ import rateLimit from 'express-rate-limit'
 import helmet from 'helmet'
 import mongoSanitize from 'express-mongo-sanitize'
 import bodyParser from 'body-parser'
-import xss from 'xss'
+import cors from 'cors'
 
 const app = express();
+app.use(express.urlencoded({
+    extended: true,
+}))
+
+app.use(mongoSanitize())
+
+// Todo: solve the error
+// app.use(xss())
+
+app.use(cors(
+    {
+        origin: '*',
+        methods: ['GET', 'PATCH', 'POST', 'DELETE', 'PUT'],
+        credentials: true
+    }
+))
 app.use(express.json({ limit: "10kb" }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -21,14 +37,6 @@ const limiter = rateLimit({
     message: "Too many request from this IP , Please try again in the Future."
 })
 
-app.use("/tawk", limiter)
-app.use(express.urlencoded({
-    extended: true,
-}))
-
-app.use(mongoSanitize())
-// app.use(xss())
-
-
+app.use("/tawk", limiter);
 
 export default app
