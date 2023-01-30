@@ -5,16 +5,14 @@ import helmet from 'helmet'
 import mongoSanitize from 'express-mongo-sanitize'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import routes from './routes'
+// @ts-ignore
+import xss from 'xss-clean'
 
 const app = express();
 app.use(express.urlencoded({
     extended: true,
 }))
-
-app.use(mongoSanitize())
-
-// Todo: solve the error
-// app.use(xss())
 
 app.use(cors(
     {
@@ -23,6 +21,7 @@ app.use(cors(
         credentials: true
     }
 ))
+
 app.use(express.json({ limit: "10kb" }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -31,6 +30,7 @@ app.use(helmet())
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan("dev"))
 }
+
 const limiter = rateLimit({
     max: 3000,
     windowMs: 60 * 60 * 1000, // 1 hour
@@ -38,5 +38,11 @@ const limiter = rateLimit({
 })
 
 app.use("/tawk", limiter);
+
+app.use(mongoSanitize())
+
+app.use(xss())
+
+app.use(routes)
 
 export default app
