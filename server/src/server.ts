@@ -2,7 +2,7 @@ import app from './app';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-dotenv.config({ path: './config.env' })
+dotenv.config()
 
 const DBURI = process.env.DBURI?.replace("<password>", process.env.DBPASSWORD as string) as string
 

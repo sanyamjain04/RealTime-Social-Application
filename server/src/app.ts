@@ -41,8 +41,8 @@ app.use("/tawk", limiter);
 
 app.use(mongoSanitize())
 
-app.use(xss())
+app.use(xss());
 
-app.use(routes)
+app.use(routes);
 
 export default app

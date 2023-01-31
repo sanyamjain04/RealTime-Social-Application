@@ -24,7 +24,6 @@ module.exports = {
   ],
   overrides: [
     {
-      extends: ['xo-typescript'],
       files: ['*.ts', '*.tsx'],
     },
   ],

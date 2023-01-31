@@ -1,13 +1,14 @@
 type FilterObj = {
-    [key: string]: any
+    obj: any;
+    allowedFields: string[];
 }
 
-const filterObj = ({ obj, ...allowedFields }: FilterObj) => {
-    const newObj = {};
+const filterObj = ({ obj, allowedFields }: FilterObj) => {
+    const newObj: Record<string, any> = {};
     Object.keys(obj).forEach((el) => {
-        // @ts-ignore
         if (allowedFields.includes(el)) newObj[el] = obj[el];
     });
     return newObj;
 };
-export default filterObj;  
+
+export default filterObj
