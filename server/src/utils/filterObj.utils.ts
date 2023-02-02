@@ -3,9 +3,9 @@ type FilterObj = {
     allowedFields: string[];
 }
 
-const filterObj = ({ obj, allowedFields }: FilterObj) => {
+const filterObj = (obj: any, allowedFields: any) => {
     const newObj: Record<string, any> = {};
-    Object.keys(obj).forEach((el) => {
+    Object.keys(obj).map((el) => {
         if (allowedFields.includes(el)) newObj[el] = obj[el];
     });
     return newObj;

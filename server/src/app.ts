@@ -8,6 +8,7 @@ import cors from 'cors'
 import routes from './routes'
 // @ts-ignore
 import xss from 'xss-clean'
+import dotenv from 'dotenv';
 
 const app = express();
 app.use(express.urlencoded({
@@ -21,13 +22,14 @@ app.use(cors(
         credentials: true
     }
 ))
+dotenv.config();
 
 app.use(express.json({ limit: "10kb" }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(helmet())
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV == 'development') {
     app.use(morgan("dev"))
 }
 

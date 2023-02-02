@@ -9,7 +9,7 @@ interface IUser {
     email: string;
     verified: boolean;
     otp: string | undefined;
-    otp_expiry_time: Date;
+    otp_expiry_time: number;
     password: string;
     passwordConfirm: string;
     passwordChangedAt: Date;
@@ -64,7 +64,7 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>({
         type: String,
     },
     otp_expiry_time: {
-        type: Date,
+        type: Number,
     },
     password: { type: String },
     passwordChangedAt: { type: Date },
@@ -75,26 +75,26 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>({
 });
 
 userSchema.pre('save', async function (next) {
-    if (!this.isModified('otp')) return next(); // only run if OTP is modified
-
-    this.otp = await bcrypt.hash(this.otp as string, 12);
-    next();
-});
-
-userSchema.pre('save', async function (next) {
     // Only run this function if password was actually modified
     if (!this.isModified('password') || !this.password) return next();
 
     // Hash the password with cost of 12
     this.password = await bcrypt.hash(this.password, 12);
-
     //! Shift it to next hook // this.passwordChangedAt = Date.now() - 1000;
 
     next();
 });
 
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('otp') || !this.otp) return next(); // only run if OTP is modified
+
+    this.otp = await bcrypt.hash(this.otp, 12);
+    next();
+});
+
 userSchema.methods.correctOTP = async (candidateOTP: string, userOTP: string) =>
     await bcrypt.compare(candidateOTP, userOTP);
+
 
 userSchema.methods.createPasswordToken = async function () {
     const resetToken = crypto.randomBytes(32).toString('hex');
