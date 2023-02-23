@@ -4,6 +4,8 @@ import Divider from '../ui/Divider';
 import { ChatList } from 'src/data';
 
 const Chat = () => {
+  console.log('chat mounted');
+
   return (
     <div className="group flex h-screen w-[300px] flex-col gap-2 bg-slate-200 dark:bg-dark dark:text-white">
       {/* Header */}

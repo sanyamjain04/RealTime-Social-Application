@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import Image from 'next/legacy/image';
 import { CaretLeft } from 'phosphor-react';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { DocMessage, LinkMessage } from '../conversation/message-type';
-import { useContactInformationStore } from '@zustand/contackStore';
+import { DocMessage, LinkMessage } from '../message-type';
+import { useConversationSidebarStore } from '@zustand/sidebarStore';
 import { Shared_docs, Shared_links } from '@data/index';
 
 type TabsTypes = 'Media' | 'Links' | 'Docs';
@@ -14,7 +14,7 @@ interface TabsProps {
 }
 
 const MediaSidebar = () => {
-  const changeSidebar = useContactInformationStore(
+  const changeSidebar = useConversationSidebarStore(
     (state) => state.updateSidebarType
   );
   const [selectedTab, setSelectedTab] = useState<TabsTypes>('Media');

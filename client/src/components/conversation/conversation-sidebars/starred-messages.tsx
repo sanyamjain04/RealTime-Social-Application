@@ -1,7 +1,7 @@
 import { CaretLeft } from 'phosphor-react';
 import { Dispatch, SetStateAction } from 'react';
-import Message from '../conversation/message';
-import { useContactInformationStore } from '@zustand/contackStore';
+import Message from '../message';
+import { useConversationSidebarStore } from '@zustand/sidebarStore';
 
 type Tabs = 'Media' | 'Links' | 'Docs';
 interface TabsProps {
@@ -11,7 +11,7 @@ interface TabsProps {
 }
 
 const StarredMessagesSidebar = () => {
-  const changeSidebar = useContactInformationStore(
+  const changeSidebar = useConversationSidebarStore(
     (state) => state.updateSidebarType
   );
 

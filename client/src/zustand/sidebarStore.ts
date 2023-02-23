@@ -14,15 +14,19 @@ interface ContactInformationProps {
     updateSidebarType: (state: SidebarTypes) => void
 }
 
-export const useContactInformationStore = create<ContactInformationProps>()(
+export const useConversationSidebarStore = create<ContactInformationProps>()(
     persist(
         (set, get) => ({
             sidebar: {
                 open: false,
                 type: 'CONTACT'
             },
-            toggleSidebar: () => set({ sidebar: { open: get().sidebar.open = !get().sidebar.open, type: get().sidebar.type } }),
-            updateSidebarType: (state: SidebarTypes) => set({ sidebar: { open: get().sidebar.open, type: get().sidebar.type = state } })
+            toggleSidebar: () => set(state => {
+                return { sidebar: { ...state.sidebar, open: !state.sidebar.open } }
+            }),
+            updateSidebarType: (sidebar: SidebarTypes) => set(state => {
+                return { sidebar: { ...state.sidebar, type: sidebar } }
+            })
         }),
         {
             name: 'conversation-sidebar',

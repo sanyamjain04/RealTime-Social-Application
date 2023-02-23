@@ -1,6 +1,6 @@
 import Divider from '@components/ui/Divider';
 import UserAvator from '@components/user/user-avator';
-import { useContactInformationStore } from '@zustand/contackStore';
+import { useConversationSidebarStore } from '@zustand/sidebarStore';
 import {
   CaretDown,
   MagnifyingGlass,
@@ -10,7 +10,7 @@ import {
 import React from 'react';
 
 const ConversationHeader = () => {
-  const toggleContactSidebar = useContactInformationStore(
+  const toggleContactSidebar = useConversationSidebarStore(
     (state) => state.toggleSidebar
   );
 

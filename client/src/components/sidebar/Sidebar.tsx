@@ -5,7 +5,7 @@ import { Profile_Menu } from '@data/index';
 import SideLinks from './side-links';
 import DarkModeToggle from './side-toggle';
 import Link from 'next/link';
-import Logo from '@assets/Images/logo.ico'
+import Logo from '@assets/Images/logo.ico';
 import UserAvator from '@components/user/user-avator';
 
 const Sidebar = () => {
@@ -14,6 +14,7 @@ const Sidebar = () => {
   const handleClick = (event: MouseEvent<HTMLDivElement>) =>
     setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+  console.log('sidebar mounted');
 
   return (
     <div className="h-screen w-[100px] overflow-hidden border-r bg-white dark:border-slate-600 dark:bg-dark">

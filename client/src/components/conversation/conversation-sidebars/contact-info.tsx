@@ -9,18 +9,18 @@ import {
   VideoCamera,
   XCircle,
 } from 'phosphor-react';
-import UserAvator from '../user/user-avator';
-import Divider from '../ui/Divider';
+import UserAvator from '../../user/user-avator';
+import Divider from '../../ui/Divider';
 import { useModal } from 'src/hooks/useModal';
 import DialogModal from 'src/lib/DialogModal';
-import Toggle from '../ui/Toggle';
-import { useContactInformationStore } from '@zustand/contackStore';
+import Toggle from '@components/ui/Toggle';
+import { useConversationSidebarStore } from '@zustand/sidebarStore';
 
 const ContactInformation = () => {
-  const toggleContactSidebar = useContactInformationStore(
+  const toggleContactSidebar = useConversationSidebarStore(
     (state) => state.toggleSidebar
   );
-  const changeSidebar = useContactInformationStore(
+  const changeSidebar = useConversationSidebarStore(
     (state) => state.updateSidebarType
   );
 
