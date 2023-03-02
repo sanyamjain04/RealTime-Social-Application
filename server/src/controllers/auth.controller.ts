@@ -28,7 +28,8 @@ export async function login(req: Request, res: Response, next: NextFunction) {
     }
 
     const token = signToken(Number(user._id));
-    return response(res, 'Logged In Successfully.', 200, token);
+    res.cookie('jwtToken', token, { httpOnly: true, secure: true });  // same-site = lax
+    return response(res, 'Logged In Successfully.', 200);
 }
 
 export async function register(
@@ -129,8 +130,8 @@ export const verifyOTP = async (req: Request, res: Response) => {
         await user.save({ validateModifiedOnly: true });
 
         const token = signToken(user._id);
-
-        return response(res, 'OTP verified Successfully.', 200, token);
+        res.cookie('jwtToken', token, { httpOnly: true, secure: true });
+        return response(res, 'OTP verified Successfully.', 200);
     } catch (error) {
         // @ts-ignore
         response(res, error?.message, 400);
@@ -193,7 +194,10 @@ export const forgetPassword = async (req: Request, res: Response) => {
         return response(res, 'User does not Exists!', 200);
     }
 
+    console.log('hello 1');
     const resetToken = await user.createPasswordToken();
+    console.log('hello');
+
 
     try {
         const resetURL = `https://tawk.com/auth/reset-password/${resetToken}`;
@@ -211,6 +215,8 @@ export const forgetPassword = async (req: Request, res: Response) => {
 };
 
 export const resetPassword = async (req: Request, res: Response) => {
+    console.log(req.params); // Todo: not workking
+
     const hashedtoken = crypto
         .createHash('sha256')
         .update(req.params.token)
@@ -232,6 +238,6 @@ export const resetPassword = async (req: Request, res: Response) => {
     await user.save();
 
     const token = signToken(user._id);
-
-    return response(res, 'Logged In Successfully.', 200, token);
+    res.cookie('jwtToken', token, { httpOnly: true, secure: true });
+    return response(res, 'Logged In Successfully.', 200);
 };
